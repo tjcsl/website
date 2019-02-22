@@ -1,16 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
 html,
 body {
     height: 100%;
+    font-family: "Open Sans", sans-serif;
 }
 .hero-container {
     padding: 0;
     margin: 0;
 }
-.hero-container #hero {
-    height: 100vh;
+#root {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: linear-gradient(0deg, rgba(8, 103, 136, 0.2) 0%, rgba(8, 103, 136, 0.2) 100%),
         url("assets/img/background.jpg");
+    height: 100%;
+}
+#overlay {
+    background-color: rgba(8, 103, 136, 0.7);
+    padding: 50px;
+    border-radius: 3px;
+}
+#overlay p {
+    font-size: 2em;
+    color: rgba(255, 252, 236, 1);
 }
