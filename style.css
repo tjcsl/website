@@ -2,7 +2,7 @@
 
 html,
 body {
-    height: 100%;
+    min-height: 100%;
     font-family: "Open Sans Condensed", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -20,15 +20,34 @@ body {
         url("assets/img/background_glow.jpg");
     height: 100%;
 }
-#overlay {
-    background-color: rgba(8, 103, 136, 0.7);
-    padding: 50px;
+.container-overlay {
     border-radius: 3px;
 }
-#overlay p {
+#overlay-main {
+    background-color: rgba(8, 103, 136, 0.8);
+    padding: 50px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#overlay-main p {
     font-size: 3em;
     color: rgba(255, 252, 236, 1);
     font-weight: bold;
+}
+#overlay-main img {
+    height: 150px;
+}
+#overlay-sub {
+    background-color: rgba(221, 64, 58, 0.8);
+    padding: 50px;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#overlay-sub p {
+    color: rgba(255, 252, 236, 1);
+    font-size: 2em;
 }
 
 /* Github Corners */
