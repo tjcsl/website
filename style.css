@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700");
 
 html,
 body {
     height: 100%;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans Condensed", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 .hero-container {
     padding: 0;
@@ -25,6 +26,7 @@ body {
     border-radius: 3px;
 }
 #overlay p {
-    font-size: 2em;
+    font-size: 3em;
     color: rgba(255, 252, 236, 1);
+    font-weight: bold;
 }
