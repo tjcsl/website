@@ -2,50 +2,50 @@
 
 html,
 body {
-    min-height: 100%;
     font-family: "Open Sans Condensed", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
-.hero-container {
-    padding: 0;
-    margin: 0;
+body {
 }
-#root {
+::selection {
+    background: rgba(221, 64, 58, 0.5);
+}
+::-moz-selection {
+    background: rgba(221, 64, 58, 0.5);
+}
+#overlay {
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: linear-gradient(0deg, rgba(8, 103, 136, 0.2) 0%, rgba(8, 103, 136, 0.2) 100%),
         url("assets/img/background_glow.jpg");
-    height: 100%;
 }
-.container-overlay {
-    border-radius: 3px;
-}
-#overlay-main {
+.overlay-main {
     background-color: rgba(8, 103, 136, 0.8);
     padding: 50px;
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
-#overlay-main p {
+.overlay-main p {
     font-size: 3em;
     color: rgba(255, 252, 236, 1);
     font-weight: bold;
 }
-#overlay-main img {
+.overlay-main img {
     height: 150px;
 }
-#overlay-sub {
-    background-color: rgba(221, 64, 58, 0.8);
+.overlay-sub {
+    background-color: rgba(3, 71, 50, 0.8);
     padding: 50px;
 
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-#overlay-sub p {
+.overlay-sub p {
     color: rgba(255, 252, 236, 1);
     font-size: 2em;
 }
@@ -53,6 +53,9 @@ body {
 /* Github Corners */
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+    z-index: 100;
 }
 @keyframes octocat-wave {
     0%,
