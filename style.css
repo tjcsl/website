@@ -72,6 +72,13 @@ body {
     }
 }
 @media (max-width: 500px) {
+    .overlay-main p {
+        font-size: 1.5em;
+    }
+    .overlay-sub p {
+        font-size: 1.1em;
+    }
+
     .github-corner:hover .octo-arm {
         animation: none;
     }
