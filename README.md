@@ -1,7 +1,7 @@
 # Website
 
 The main TJ Website that is in development.
-Supervised by Theo Ouzhinski, Keegan Lanzillotta, and Akash Bhave.
+Supervised jointly by Akash Bhave, Keegan Lanzillotta, and Theo Ouzhinski.
 
 ## TODO
 
