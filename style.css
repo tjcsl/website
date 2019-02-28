@@ -1,30 +1,89 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700");
 
 html,
 body {
-    height: 100%;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans Condensed", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
-.hero-container {
-    padding: 0;
-    margin: 0;
+body {
 }
-#root {
+::selection {
+    background: rgba(221, 64, 58, 0.5);
+}
+::-moz-selection {
+    background: rgba(221, 64, 58, 0.5);
+}
+#overlay {
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(0deg, rgba(8, 103, 136, 0.2) 0%, rgba(8, 103, 136, 0.2) 100%),
-        url("assets/img/background.jpg");
-    height: 100%;
+    background-image: linear-gradient(rgba(3, 71, 50, 1) 0%, rgba(40, 35, 41, 1) 20%, #000000 80%, rgba(8, 103, 136, 1) 100%);
 }
-#overlay {
-    background-color: rgba(8, 103, 136, 0.7);
+.overlay-main {
+    background-color: rgba(8, 103, 136, 0.8);
     padding: 50px;
-    border-radius: 3px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
-#overlay p {
-    font-size: 2em;
+.overlay-main p {
+    font-size: 3em;
     color: rgba(255, 252, 236, 1);
+    font-weight: bold;
+}
+.overlay-main img {
+    height: 150px;
+}
+.overlay-sub {
+    background-color: rgba(3, 71, 50, 0.8);
+    padding: 50px;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.overlay-sub p {
+    color: rgba(255, 252, 236, 1);
+    font-size: 2em;
+}
+
+/* Github Corners */
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+    z-index: 100;
+}
+@keyframes octocat-wave {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+        transform: rotate(10deg);
+    }
+}
+@media (max-width: 500px) {
+    .overlay-main p {
+        font-size: 1.5em;
+    }
+    .overlay-sub p {
+        font-size: 1.1em;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: none;
+    }
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+    }
 }
 .linkbox{
     font-size:1em;
