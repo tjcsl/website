@@ -16,6 +16,14 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <script>
+            function upgradesmall() {
+                document.getElementById('overlay').style.backgroundImage="url(\"assets/img/background_glow.jpg\")";
+            }
+            function upgradebig() {
+                document.getElementById('overlay').style.backgroundImage="url(\"assets/img/background_glow@100.jpg\")";
+            }
+        </script>
         <div class="" id="root">
             <a href="https://github.com/tjcsl/website" class="github-corner" aria-label="View source on GitHub">
                 <svg
@@ -64,6 +72,8 @@
                 </div>
             </div>
         </div>
+        <img class="loader" src="assets/img/background_glow.jpg" style="display:none" onload="upgradesmall();"/>
+        <img class="loader" src="assets/img/background_glow@100.jpg" style="display:none" onload="upgradebig();"/>
 
         <!-- Bootstrap - JS -->
         <script

@@ -20,8 +20,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(0deg, rgba(8, 103, 136, 0.2) 0%, rgba(8, 103, 136, 0.2) 100%),
-        url("assets/img/background_glow.jpg");
+    background-image: linear-gradient(rgba(3, 71, 50, 1) 0%, rgba(40, 35, 41, 1) 20%, #000000 80%, rgba(8, 103, 136, 1) 100%);
 }
 .overlay-main {
     background-color: rgba(8, 103, 136, 0.8);
