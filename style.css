@@ -49,6 +49,40 @@ body {
     font-size: 2em;
 }
 
+/* Links */
+.linkbox{
+    font-size:1em;
+    color: black;
+    text-decoration:none;
+    text-align: center;
+    margin-top:10px;
+}
+#links{
+    background-color: rgb(8, 103, 136);
+}
+.icon{
+    text-align:center;
+    font-size:70px;
+    color:rgb(26, 13, 209);
+    margin:10px;
+}
+.linkbox a{
+    color:black;
+}
+.linkbox a:hover{
+    color:rgb(40,40,40);
+    text-decoration:none;
+}
+.linkbox .officiallink{
+    text-align:center;
+    font-size: 1em;
+    color:white;
+    background-color:rgb(179, 22, 11);
+    margin:5px;
+    border-radius:15px;
+    padding:15px;
+}
+
 /* Github Corners */
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
@@ -85,3 +119,4 @@ body {
         animation: octocat-wave 560ms ease-in-out;
     }
 }
+
