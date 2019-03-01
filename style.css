@@ -7,20 +7,27 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
-body {
-}
 ::selection {
     background: rgba(221, 64, 58, 0.5);
 }
 ::-moz-selection {
     background: rgba(221, 64, 58, 0.5);
 }
-#overlay {
-    min-height: 100vh;
+#root {
+    background-image: linear-gradient(
+        rgba(3, 71, 50, 1) 0%,
+        rgba(40, 35, 41, 1) 20%,
+        #000000 80%,
+        rgba(8, 103, 136, 1) 100%
+    );
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: linear-gradient(rgba(3, 71, 50, 1) 0%, rgba(40, 35, 41, 1) 20%, #000000 80%, rgba(8, 103, 136, 1) 100%);
+}
+
+/* Overlay */
+#overlay {
+    min-height: 100vh;
 }
 .overlay-main {
     background-color: rgba(8, 103, 136, 0.8);
@@ -50,37 +57,37 @@ body {
 }
 
 /* Links */
-.linkbox{
-    font-size:1em;
-    color: black;
-    text-decoration:none;
-    text-align: center;
-    margin-top:10px;
-}
-#links{
-    background-color: rgb(8, 103, 136);
-}
-.icon{
-    text-align:center;
-    font-size:70px;
-    color:rgb(26, 13, 209);
-    margin:10px;
-}
-.linkbox a{
-    color:black;
-}
-.linkbox a:hover{
-    color:rgb(40,40,40);
-    text-decoration:none;
-}
-.linkbox .officiallink{
-    text-align:center;
+.linkbox {
     font-size: 1em;
-    color:white;
-    background-color:rgb(179, 22, 11);
-    margin:5px;
-    border-radius:15px;
-    padding:15px;
+    color: rgba(40, 35, 41, 1);
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+}
+#links {
+    background-color: rgba(8, 103, 136, 0.8);
+}
+.icon {
+    text-align: center;
+    font-size: 70px;
+    color: rgba(255, 252, 236, 1);
+    margin: 10px;
+}
+.linkbox a {
+    color: rgba(255, 252, 236, 1);
+}
+.linkbox a:hover {
+    color: rgb(179, 22, 11);
+    text-decoration: none;
+}
+.linkbox .officiallink {
+    text-align: center;
+    font-size: 1em;
+    color: rgba(255, 252, 236, 1);
+    background-color: rgb(179, 22, 11);
+    margin: 5px;
+    border-radius: 15px;
+    padding: 15px;
 }
 
 /* Github Corners */
@@ -119,4 +126,3 @@ body {
         animation: octocat-wave 560ms ease-in-out;
     }
 }
-
