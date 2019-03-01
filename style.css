@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700");
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica:400i');
+@import url("https://fonts.googleapis.com/css?family=Calligraffitti");
 
 html,
 body {
@@ -25,13 +25,16 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-#disclaimer {
-    font-family: "IM Fell Double Pica", serif;
+.banner {
     font-size: 1em;
     color: rgba(255, 252, 236, 1);
-    background-color: rgba(221, 64, 58, 1);
+    background-color: rgba(221, 64, 58, 0.8);
+    padding-top: 10px;
+    padding-bottom: 2px;
 }
-
+#banner-student {
+    font-family: "Calligraffitti";
+}
 
 /* Overlay */
 #overlay {
