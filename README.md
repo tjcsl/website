@@ -12,7 +12,7 @@ Supervised jointly by Akash Bhave, Keegan Lanzillotta, and Theo Ouzhinski.
 
 Not necessarily ordered by prominence/importance.
 
--   [ ] The "official" [FCPS-sponsored webpage](https:://tjhsst.fcps.edu) (should be prominent)
+-   [ ] The "official" [FCPS-sponsored webpage](https://tjhsst.fcps.edu) (should be prominent)
 -   [x] [Library databases](https://sites.google.com/fcpsschools.net/tjlibraryresources/home)
 -   [x] [TJ Intranet](https://ion.tjhsst.edu)
 -   [x] [Director](https://director.tjhsst.edu)
