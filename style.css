@@ -38,7 +38,7 @@ body {
 
 /* Overlay */
 #overlay {
-    min-height: 100vh;
+    min-height: 80.7vh;
 }
 .overlay-main {
     background-color: rgba(8, 103, 136, 0.8);
