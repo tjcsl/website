@@ -35,6 +35,10 @@ body {
 #banner-student {
     font-family: "Calligraffitti";
 }
+#banner-unofficial > a {
+    color: rgba(3, 71, 50, 1);
+}
+
 
 /* Overlay */
 #overlay {
