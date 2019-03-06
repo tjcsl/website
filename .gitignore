@@ -1,3 +1,11 @@
 .DS_Store
 .vscode/
 .idea/
+
+*.py[cod]
+__pycache__/
+
+db.sqlite3
+
+secret.py
+
