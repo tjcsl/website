@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+try:
+    from .secret import *
+except ImportError:
+    pass
 
 # Application definition
 
