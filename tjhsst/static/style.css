@@ -93,8 +93,10 @@ body {
     color: rgba(255, 252, 236, 1);
 }
 .linkbox a:hover {
-    color: rgb(179, 22, 11);
     text-decoration: none;
+}
+.linkbox a:hover .icon, .linkbox a:hover p {
+    opacity: 0.7;
 }
 .linkbox .officiallink {
     text-align: center;
