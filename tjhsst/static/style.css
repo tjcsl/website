@@ -26,7 +26,7 @@ body {
     background-size: cover;
 }
 .banner {
-    font-size: 1em;
+    font-size: 1.3em;
     color: rgba(255, 252, 236, 1);
     background-color: rgba(221, 64, 58, 0.8);
     padding-top: 10px;
@@ -36,7 +36,12 @@ body {
     font-family: "Calligraffitti";
 }
 #banner-unofficial > a {
-    color: rgba(3, 71, 50, 1);
+    color: rgba(110, 213, 247,1);
+}
+
+#banner-student .students {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
 }
 
 
