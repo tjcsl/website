@@ -24,7 +24,7 @@ SECRET_KEY = 'u^^=3cms1tv(%w3bq&9t_xb4j%((d0k+pcsqi$itlyty9)leo-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "new.tjhsst.edu", "new", "tjhsst.edu"]
 
 try:
     from .secret import *
