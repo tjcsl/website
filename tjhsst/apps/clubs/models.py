@@ -9,7 +9,7 @@ class Club(models.Model):
     description = models.CharField(max_length=5000)
     link = models.CharField(max_length=200, blank = True)    
     
-    category = models.ForeignKey("Category", related_name="clubs", on_delete=models.SET_NULL)
+    category = models.ForeignKey("Category", related_name="clubs", on_delete=models.SET_NULL, null = True)
     keywords = models.ManyToManyField("Keyword", related_name="clubs")
 
 class Keyword(models.Model):
