@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Clubs(models.Model):
+class Club(models.Model):
     name = models.CharField(max_length=100, primary_key = True)
     height = models.IntegerField()
     width = models.IntegerField()
