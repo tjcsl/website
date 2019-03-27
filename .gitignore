@@ -10,4 +10,5 @@ db.sqlite3
 
 /tjhsst/settings/secret.py
 /tjhsst/serve
+/tjhsst/media
 
