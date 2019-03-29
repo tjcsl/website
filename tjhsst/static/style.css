@@ -25,6 +25,7 @@ body {
 .category:hover {
     color: white;
     background-color: #44CC44;
+    text-decoration: none;
 }
 
 .keyword {
@@ -32,3 +33,10 @@ body {
     background-color: #DDDDFF;
     color: #4444FF;
 }
+
+.keyword:hover {
+    background-color: #CCCCEE;
+    color: #3333EE;
+    text-decoration: none;
+}
+
