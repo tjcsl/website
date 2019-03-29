@@ -4,7 +4,7 @@
     <div style="background-image: url({{ club.image.url }}); background-size: cover;"></div>
     <h2>
         {{ club.name }} 
-        <a class = "category" href="{% url 'clubs:show_category' club.category.url %}">
+        <a class="category" href="{% url 'clubs:show_category' club.category.url %}">
             {{ club.category.name }}
         </a>
     </h2>
