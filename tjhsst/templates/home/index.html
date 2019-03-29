@@ -13,7 +13,7 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous"
         />
-        <link rel="shortcut icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon" />
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
         <link rel="stylesheet" href="{% static 'home.css' %}" />
         <link
             rel="stylesheet"
@@ -25,10 +25,10 @@
     <body>
         <script>
             function bgImageSmall() {
-                document.getElementById("root").style.backgroundImage = 'url("{% static 'assets/img/background_glow.jpg' %}")';
+                document.getElementById("root").style.backgroundImage = 'url("{% static 'img/background_glow.jpg' %}")';
             }
             function bgImageLarge() {
-                document.getElementById("root").style.backgroundImage = 'url("{% static 'assets/img/background_glow@100.jpg' %}")';
+                document.getElementById("root").style.backgroundImage = 'url("{% static 'img/background_glow@100.jpg' %}")';
             }
         </script>
         <div class="" id="root">
@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col-12 ">
                             <div class="overlay-main">
-                              <img class="img-fluid my-4" src="{% static 'assets/img/logo.svg' %}" alt="TJHSST Logo" srcset="" />
+                              <img class="img-fluid my-4" src="{% static 'img/logo.svg' %}" alt="TJHSST Logo" srcset="" />
                                 <p class="text-uppercase heading-2">
                                     Thomas Jefferson
                                     <br />
@@ -91,7 +91,7 @@
                 <div class="row">
                     <div class="linkbox col-md-2 col-6">
                         <a target="_blank" rel="noopener noreferrer" href="https://ion.tjhsst.edu">
-                            <img class="icon" src="{% static 'assets/img/logo.svg' %}" />
+                            <img class="icon" src="{% static 'img/logo.svg' %}" />
                             <p>Intranet</p>
                         </a>
                     </div>
@@ -129,8 +129,8 @@
             </div>
         </div>
 
-        <img class="loader" src="{% static 'assets/img/background_glow.jpg' %}" style="display:none" onload="bgImageSmall();" />
-        <img class="loader" src="{% static 'assets/img/background_glow@100.jpg' %}" style="display:none" onload="bgImageLarge();" />
+        <img class="loader" src="{% static 'img/background_glow.jpg' %}" style="display:none" onload="bgImageSmall();" />
+        <img class="loader" src="{% static 'img/background_glow@100.jpg' %}" style="display:none" onload="bgImageLarge();" />
 
         <!-- Bootstrap - JS -->
         <script
