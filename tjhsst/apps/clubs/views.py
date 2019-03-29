@@ -1,8 +1,22 @@
+import random
+
 from django.shortcuts import render, get_object_or_404
 
 from .models import Club, Keyword, Category
 
 # Create your views here.
+
+def index(request):
+    # Order the clubs randomly, but store the seed in a session variable so the
+    # order won't change if the user reloads the page.
+    if "seed" not in request.session:
+        request.session["seed"] = random.randint(0, 10000)
+    rand_gen = random.Random(request.session["seed"])
+
+    clubs = Club.objects.all()
+    clubs = sorted(clubs, key = lambda c: rand_gen.random())
+
+    return render(request, "clubs/index.html", context = {"clubs": clubs})
 
 def show(request, club_url):
     club = get_object_or_404(Club, url = club_url)
