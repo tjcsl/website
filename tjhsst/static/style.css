@@ -22,6 +22,11 @@ body {
     font-size: 70%;
 }
 
+.category:hover {
+    color: white;
+    background-color: #44CC44;
+}
+
 .keyword {
     padding: 3px 5px;
     background-color: #DDDDFF;

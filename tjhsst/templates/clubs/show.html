@@ -2,10 +2,19 @@
 
 {% block main %}
     <div style="background-image: url({{ club.image.url }}); background-size: cover;"></div>
-    <h2>{{ club.name }} <span class="category">{{ club.category }}</span></h2>
+    <h2>
+        {{ club.name }} 
+        <a class = "category" href="/clubs/cat/{{ club.category }}">
+            {{ club.category }}
+        </a>
+    </h2>
     {% if club.link %}
         <p><a href="{{ club.link }}">{{ club.link }}</a></p>
     {% endif %}
     <p>{{ club.description }}</p>
-    <p>{% for keyword in club.keywords.all %}<span class="keyword">{{ keyword }}</span>{% endfor %}</p>
+    <p>
+        {% for keyword in club.keywords.all %}
+            <a class="keyword" href="/clubs/keywd/{{ keyword }}">{{ keyword }}</a>
+        {% endfor %}
+    </p>
 {% endblock %}
