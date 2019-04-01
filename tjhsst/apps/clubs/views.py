@@ -44,6 +44,7 @@ def index(request):
 
 def show(request, club_url):
     club = get_object_or_404(Club, url = club_url)
+
     return render(
         request,
         "clubs/show.html",
@@ -56,6 +57,7 @@ def show(request, club_url):
 
 def show_category(request, category_url):
     category = get_object_or_404(Category, url = category_url)
+
     return render(
         request,
         "clubs/categories/show.html",
