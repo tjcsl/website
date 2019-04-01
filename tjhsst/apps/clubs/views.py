@@ -61,6 +61,7 @@ def show_category(request, category_url):
         "clubs/categories/show.html",
         {
             "category": category,
+            "clubs": category.clubs.all(),
             "search_url": reverse("clubs:index"),
             "search_name": "clubs",
         },
@@ -74,6 +75,7 @@ def show_keyword(request, keyword_url):
         "clubs/keywords/show.html",
         {
             "keyword": keyword,
+            "clubs": keyword.clubs.all(),
             "search_url": reverse("clubs:index"),
             "search_name": "clubs",
         },

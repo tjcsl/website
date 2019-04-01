@@ -4,5 +4,16 @@
     <h2>
         {{ keyword.name }}
     </h2>
+
+    <p>{{ clubs|length }} clubs</p>
+
+    {% for club in clubs %}
+        <div class="club">
+            <a href="{% url 'clubs:show' club.url %}">{{ club.name }}</a>
+            <a class="category category-large" href="{% url 'clubs:show_category' club.category.url %}">
+                {{ club.category.name }}
+            </a>
+        </div>
+    {% endfor %}
 {% endblock %}
 
