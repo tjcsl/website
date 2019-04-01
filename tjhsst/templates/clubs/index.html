@@ -3,6 +3,8 @@
 {% block title %}TJHSST: Clubs{% endblock %}
 
 {% block main %}
+    <p>{{ clubs|length }} clubs</p>
+
     {% for club in clubs %}
         <div class="club">
             <a href="{% url 'clubs:show' club.url %}">{{ club.name }}</a>

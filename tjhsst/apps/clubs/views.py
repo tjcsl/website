@@ -7,14 +7,29 @@ from .models import Club, Keyword, Category
 # Create your views here.
 
 def index(request):
-    # Order the clubs randomly, but store the seed in a session variable so the
-    # order won't change if the user reloads the page.
-    if "seed" not in request.session:
-        request.session["seed"] = random.randint(0, 10000)
-    rand_gen = random.Random(request.session["seed"])
-
     clubs = Club.objects.all()
-    clubs = sorted(clubs, key = lambda c: rand_gen.random())
+
+    if request.GET.get("q"):
+        query = request.GET["q"]
+        words = query.split()
+
+        club_scores = {club: 0 for club in clubs}
+        for word in words:
+            for club in clubs.filter(name__contains = word):
+                club_scores[club] += 2
+
+            for club in clubs.filter(description__contains = word):
+                club_scores[club] += 1
+
+        clubs = sorted((club for club in clubs if club_scores[club] > 0), key = club_scores.__getitem__)
+    else:
+        # Order the clubs randomly, but store the seed in a session variable so the
+        # order won't change if the user reloads the page.
+        if "seed" not in request.session:
+            request.session["seed"] = random.randint(0, 10000)
+        rand_gen = random.Random(request.session["seed"])
+
+        clubs = sorted(clubs, key = lambda c: rand_gen.random())
 
     return render(
         request,
@@ -23,6 +38,7 @@ def index(request):
             "clubs": clubs,
             "search_url": reverse("clubs:index"),
             "search_name": "clubs",
+            "search_term": request.GET.get("q"),
         },
     )
 

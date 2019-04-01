@@ -33,7 +33,7 @@
                 {% if search_url and search_name %}
                     <li>
                         <form class="search" method="GET" action="{{ search_url }}">
-                            <input type="search" name="q" placeholder="Search for {{ search_name }}">
+                            <input type="search" name="q" placeholder="Search for {{ search_name }}" value="{{ search_term }}">
                             <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                         </form>
                     </li>
