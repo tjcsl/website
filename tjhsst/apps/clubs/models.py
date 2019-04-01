@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 class Club(models.Model):
     id = models.AutoField(primary_key = True)
     name = models.CharField(max_length=100, unique = True)
-    url = models.CharField(max_length=10, unique = True, validators=[RegexValidator(regex="^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
+    url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex="^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
     height = models.IntegerField()
     width = models.IntegerField()
     image = models.ImageField(upload_to = "club_photos/", height_field = "height", width_field = "width")
