@@ -38,7 +38,7 @@ def index(request):
             "clubs": clubs,
             "search_url": reverse("clubs:index"),
             "search_name": "clubs",
-            "search_term": request.GET.get("q"),
+            "search_term": request.GET.get("q", ""),
         },
     )
 
