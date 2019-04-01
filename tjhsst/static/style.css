@@ -28,6 +28,10 @@ body {
     text-decoration: none;
 }
 
+.category-large {
+    font-size: 100%;
+}
+
 .keyword {
     padding: 3px 5px;
     background-color: #DDDDFF;
@@ -40,3 +44,57 @@ body {
     text-decoration: none;
 }
 
+
+.navbar {
+    background: #888;
+}
+
+.nav.navbar-nav {
+    height: 24px;
+}
+
+.navbar .logo {
+    background-image: url('/static/assets/img/favicon.ico');
+    background-size: auto 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    float: left;
+    vertical-align: baseline;
+}
+
+.navbar h1 {
+    margin-bottom: 0px;
+    font-size: 30px;
+    line-height: 30px;
+    vertical-align: baseline;
+    padding-left: 8px;
+    float: left;
+}
+
+.navbar .search {
+    height: 24px;
+    background-color: #AAA;
+    border-radius: 3px;
+}
+
+.navbar .search input[type="search"] {
+    border-radius: 5px;
+    padding: 0px 0px 0px 5px;
+    margin: 0px;
+    float: left;
+    line-height: 24px;
+    width: 200px;
+    border: none;
+}
+
+.navbar .search button[type="submit"] {
+    background-color: #999;
+    color: #FFF;
+    font-size: 13px;
+    float: right;
+    height: 24px;
+    border: none;
+    box-shadow: none;
+}
