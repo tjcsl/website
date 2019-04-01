@@ -30,12 +30,14 @@
                 <h1>TJHSST</h1>
             </a>
             <ul class="nav navbar-nav">
-                <li>
-                    <form class="search" method="GET">
-                        <input type="search" name="q" placeholder="Search for clubs">
-                        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-                    </form>
-                </li>
+                {% if search_url and search_name %}
+                    <li>
+                        <form class="search" method="GET" action="{{ search_url }}">
+                            <input type="search" name="q" placeholder="Search for {{ search_name }}">
+                            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                        </form>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
         <div class="" id="root" style="background: #FFFFFF;margin:10px;">
