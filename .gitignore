@@ -9,4 +9,7 @@ __pycache__/
 db.sqlite3
 
 /tjhsst/settings/secret.py
+/tjhsst/serve
+/tjhsst/media
+/tjhsst/info.log
 

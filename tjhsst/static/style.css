@@ -14,139 +14,87 @@ body {
 ::-moz-selection {
     background: rgba(221, 64, 58, 0.5);
 }
-#root {
-    background-image: linear-gradient(
-        rgba(3, 71, 50, 1) 0%,
-        rgba(40, 35, 41, 1) 20%,
-        #000000 80%,
-        rgba(8, 103, 136, 1) 100%
-    );
+
+.category {
+    border: 1px solid #44CC44;
+    padding: 0px 3px;
+    color: #44CC44;
+    font-size: 70%;
+}
+
+.category:hover {
+    color: white;
+    background-color: #44CC44;
+    text-decoration: none;
+}
+
+.category-large {
+    font-size: 100%;
+}
+
+.keyword {
+    padding: 3px 5px;
+    background-color: #DDDDFF;
+    color: #4444FF;
+}
+
+.keyword:hover {
+    background-color: #CCCCEE;
+    color: #3333EE;
+    text-decoration: none;
+}
+
+
+.navbar {
+    background: #888;
+}
+
+.nav.navbar-nav {
+    height: 24px;
+}
+
+.navbar .logo {
+    background-image: url('/static/assets/img/favicon.ico');
+    background-size: auto 30px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-}
-.banner {
-    font-size: 1.3em;
-    color: rgba(255, 252, 236, 1);
-    background-color: rgba(221, 64, 58, 0.8);
-    padding-top: 10px;
-    padding-bottom: 2px;
-}
-#banner-student {
-    font-family: "Calligraffitti";
-    padding: 0px 80px 0px 80px;
-}
-#banner-unofficial > a {
-    color: rgba(110, 213, 247,1);
+    width: 30px;
+    height: 30px;
+    float: left;
+    vertical-align: baseline;
 }
 
-#banner-student .students {
-    font-weight: bold;
-    color: rgba(255, 255, 255, 1);
+.navbar h1 {
+    margin-bottom: 0px;
+    font-size: 30px;
+    line-height: 30px;
+    vertical-align: baseline;
+    padding-left: 8px;
+    float: left;
 }
 
-
-/* Overlay */
-#overlay {
-    min-height: 80.7vh;
-    min-height: calc(100vh - 232px);
-}
-.overlay-main {
-    background-color: rgba(8, 103, 136, 0.8);
-    padding: 50px;
-
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-.overlay-main p {
-    font-size: 3em;
-    color: rgba(255, 252, 236, 1);
-    font-weight: bold;
-}
-.overlay-main img {
-    height: 150px;
-}
-.overlay-sub {
-    background-color: rgba(3, 71, 50, 0.8);
-    padding: 50px;
-
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-.overlay-sub p {
-    color: rgba(255, 252, 236, 1);
-    font-size: 2em;
+.navbar .search {
+    height: 24px;
+    background-color: #AAA;
+    border-radius: 3px;
 }
 
-/* Links */
-.linkbox {
-    font-size: 1em;
-    color: rgba(40, 35, 41, 1);
-    text-decoration: none;
-    text-align: center;
-    margin-top: 10px;
-}
-#links {
-    background-color: rgba(8, 103, 136, 0.8);
-}
-.icon {
-    text-align: center;
-    font-size: 70px;
-    color: rgba(255, 252, 236, 1);
-    margin: 10px;
-}
-.linkbox a {
-    color: rgba(255, 252, 236, 1);
-}
-.linkbox a:hover {
-    text-decoration: none;
-}
-.linkbox a:hover .icon, .linkbox a:hover p {
-    opacity: 0.7;
-}
-.linkbox .officiallink {
-    text-align: center;
-    font-size: 1em;
-    color: rgba(255, 252, 236, 1);
-    background-color: rgb(179, 22, 11);
-    margin: 5px;
-    border-radius: 15px;
-    padding: 15px;
+.navbar .search input[type="search"] {
+    border-radius: 5px;
+    padding: 0px 0px 0px 5px;
+    margin: 0px;
+    float: left;
+    line-height: 24px;
+    width: 200px;
+    border: none;
 }
 
-/* Github Corners */
-.github-corner:hover .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
-}
-.github-corner svg {
-    z-index: 100;
-}
-@keyframes octocat-wave {
-    0%,
-    100% {
-        transform: rotate(0);
-    }
-    20%,
-    60% {
-        transform: rotate(-25deg);
-    }
-    40%,
-    80% {
-        transform: rotate(10deg);
-    }
-}
-@media (max-width: 500px) {
-    .overlay-main p {
-        font-size: 1.5em;
-    }
-    .overlay-sub p {
-        font-size: 1.1em;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: none;
-    }
-    .github-corner .octo-arm {
-        animation: octocat-wave 560ms ease-in-out;
-    }
+.navbar .search button[type="submit"] {
+    background-color: #999;
+    color: #FFF;
+    font-size: 13px;
+    float: right;
+    height: 24px;
+    border: none;
+    box-shadow: none;
 }
