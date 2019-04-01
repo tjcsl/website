@@ -54,7 +54,7 @@ body {
 }
 
 .navbar .logo {
-    background-image: url('/static/assets/img/favicon.ico');
+    background-image: url('/static/img/favicon.ico');
     background-size: auto 30px;
     background-position: center;
     background-repeat: no-repeat;
