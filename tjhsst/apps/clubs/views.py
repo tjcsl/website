@@ -36,8 +36,6 @@ def index(request):
         "clubs/index.html",
         {
             "clubs": clubs,
-            "search_url": reverse("clubs:index"),
-            "search_name": "clubs",
             "search_term": request.GET.get("q", ""),
         },
     )
@@ -50,8 +48,6 @@ def show(request, club_url):
         "clubs/show.html",
         {
             "club": club,
-            "search_url": reverse("clubs:index"),
-            "search_name": "clubs",
         },
     )
 
@@ -64,8 +60,6 @@ def show_category(request, category_url):
         {
             "category": category,
             "clubs": category.clubs.all(),
-            "search_url": reverse("clubs:index"),
-            "search_name": "clubs",
         },
     )
 
@@ -78,8 +72,6 @@ def show_keyword(request, keyword_url):
         {
             "keyword": keyword,
             "clubs": keyword.clubs.all(),
-            "search_url": reverse("clubs:index"),
-            "search_name": "clubs",
         },
     )
 
