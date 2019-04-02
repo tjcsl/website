@@ -74,6 +74,7 @@ body {
 
 .navbar .search {
     height: 24px;
+    background-color: rgb(0, 80, 105);
     border-radius: 3px;
 }
 
@@ -88,9 +89,8 @@ body {
 }
 
 .navbar .search button[type="submit"] {
-    background-color: rgba(221, 64, 58, 1);
+    background-color: rgb(0, 80, 100);
     border-radius: 3px;
-    margin-left: 20px;
     color: #fff;
     font-size: 13px;
     float: right;
