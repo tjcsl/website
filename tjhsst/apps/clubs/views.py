@@ -27,7 +27,7 @@ def index(request):
             for club in clubs.filter(description__contains = word):
                 club_scores[club] += 1
 
-        clubs = sorted((club for club in clubs if club_scores[club] > 0), key = club_scores.__getitem__)
+        clubs = sorted((club for club in clubs if club_scores[club] > 0), reverse = True, key = club_scores.__getitem__)
     else:
         # Order the clubs randomly, but store the seed in a session variable so the
         # order won't change if the user reloads the page.
