@@ -16,15 +16,15 @@ body {
 }
 
 .category {
-    border: 1px solid #44CC44;
+    border: 1px solid #44cc44;
     padding: 0px 3px;
-    color: #44CC44;
+    color: #44cc44;
     font-size: 70%;
 }
 
 .category:hover {
     color: white;
-    background-color: #44CC44;
+    background-color: #44cc44;
     text-decoration: none;
 }
 
@@ -34,19 +34,18 @@ body {
 
 .keyword {
     padding: 3px 5px;
-    background-color: #DDDDFF;
-    color: #4444FF;
+    background-color: #ddddff;
+    color: #4444ff;
 }
 
 .keyword:hover {
-    background-color: #CCCCEE;
-    color: #3333EE;
+    background-color: #ccccee;
+    color: #3333ee;
     text-decoration: none;
 }
 
-
 .navbar {
-    background: #888;
+    background: rgba(8, 103, 136, 1);
 }
 
 .nav.navbar-nav {
@@ -54,7 +53,7 @@ body {
 }
 
 .navbar .logo {
-    background-image: url('/static/assets/img/favicon.ico');
+    background-image: url("/static/img/favicon.ico");
     background-size: auto 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -75,7 +74,7 @@ body {
 
 .navbar .search {
     height: 24px;
-    background-color: #AAA;
+    background-color: rgb(0, 80, 105);
     border-radius: 3px;
 }
 
@@ -90,8 +89,9 @@ body {
 }
 
 .navbar .search button[type="submit"] {
-    background-color: #999;
-    color: #FFF;
+    background-color: rgb(0, 80, 100);
+    border-radius: 3px;
+    color: #fff;
     font-size: 13px;
     float: right;
     height: 24px;
