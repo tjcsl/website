@@ -10,6 +10,7 @@ django = "==2.1.7"
 gevent = "*"
 gunicorn = "*"
 Pillow = "*"
+social-auth-app-django = "*"
 
 [requires]
 python_version = "3.5"
