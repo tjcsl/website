@@ -2,3 +2,35 @@
     width: 100vw;
     background-size: cover;
 }
+
+.category {
+    border: 1px solid #44cc44;
+    padding: 0px 3px;
+    color: #44cc44;
+    font-size: 70%;
+}
+
+.category:hover {
+    color: white;
+    background-color: #44cc44;
+    text-decoration: none;
+}
+
+.category-large {
+    font-size: 100%;
+}
+
+.club-box {
+    padding: 3px;
+}
+.keyword {
+    padding: 3px 5px;
+    background-color: #ddddff;
+    color: #4444ff;
+}
+
+.keyword:hover {
+    background-color: #ccccee;
+    color: #3333ee;
+    text-decoration: none;
+}

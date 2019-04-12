@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>
+        {{ prerequisite.name }}
+    </h2>
+
+    <p>{{ labs|length }} labs</p>
+
+    {% for lab in labs %}
+        <div class="lab lab-box">
+            <a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
+            <a class="prerequisite prerequisite-large" href="{% url 'labs:show_prerequisite' lab.prerequisite.url %}">
+                {{ lab.prerequisite.name }}
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}
+

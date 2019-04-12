@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>
+        {{ keyword.name }}
+    </h2>
+
+    <p>{{ labs|length }} labs</p>
+
+    {% for lab in labs %}
+        <div class="lab lab-box">
+            <a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
+            <a class="recommended recommended-large" href="{% url 'labs:show_recommended' lab.recommended.url %}">
+                {{ lab.recommended.name }}
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}
+
