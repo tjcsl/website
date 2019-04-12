@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tjhsst.apps.home',
     'tjhsst.apps.clubs',
+    'tjhsst.apps.labs',
 ]
 
 MIDDLEWARE = [

@@ -21,5 +21,6 @@ urlpatterns = [
 
     path('', include("tjhsst.apps.home.urls", namespace = "home")),
     path('clubs/', include("tjhsst.apps.clubs.urls", namespace = "clubs")),
+    path('labs/', include("tjhsst.apps.labs.urls", namespace="labs")),
 ]
 

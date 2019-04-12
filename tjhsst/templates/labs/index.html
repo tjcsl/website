@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}TJHSST: Labs{% endblock %}
+
+{% block main %}
+    <p>{{ labs|length }} labs</p>
+
+    {% for lab in labs %}
+        <div class="lab lab-box">
+            <a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+

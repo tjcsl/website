@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head %} 
+    <link rel="stylesheet" href="{% static 'clubs.css' %}" /> 
+{% endblock %}
 
 {% block main %}
     <div style="background-image: url({{ club.image.url }}); background-size: cover;"></div>
