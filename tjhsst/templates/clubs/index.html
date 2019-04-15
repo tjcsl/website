@@ -3,7 +3,7 @@
 {% block title %}TJHSST: Clubs{% endblock %}
 
 {% block main %}
-    <p>{{ clubs|length }} clubs</p>
+    <p>{{ clubs|length }} club{{ clubs|length|pluralize:",s" }}</p>
 
     {% for club in clubs %}
         <div class="club club-box">
