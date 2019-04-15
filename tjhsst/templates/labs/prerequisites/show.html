@@ -10,7 +10,7 @@
         {{ prerequisite.name }}
     </h2>
 
-    <p>{{ labs|length }} labs</p>
+    <p>{{ labs|length }} lab{{ labs|length|pluralize:",s" }} </p>
 
     {% for lab in labs %}
         <div class="lab lab-box">

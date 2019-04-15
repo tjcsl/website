@@ -1,11 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'clubs.css' %}">
+{% endblock %}
 
 {% block main %}
     <h2>
         {{ category.name }}
     </h2>
 
-    <p>{{ clubs|length }} clubs</p>
+    <p>{{ clubs|length }} club{{ clubs|length|pluralize:",s" }}</p>
 
     {% for club in clubs %}
         <div class="club club-box">
