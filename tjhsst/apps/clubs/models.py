@@ -13,7 +13,7 @@ class Club(models.Model):
 
     description = models.CharField(max_length=5000)
     link = models.CharField(max_length=200, blank = True)
-    
+
     category = models.ForeignKey("Category", related_name="clubs", on_delete=models.SET_NULL, blank = True, null = True)
     keywords = models.ManyToManyField("Keyword", related_name="clubs")
 
@@ -28,7 +28,7 @@ class Keyword(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 class Category(models.Model):
     id = models.AutoField(primary_key = True)

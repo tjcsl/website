@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block head %} 
-    <link rel="stylesheet" href="{% static 'labs.css' %}" /> 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'labs.css' %}" />
 {% endblock %}
 
 {% block main %}
     <div style="background-image: url({{ lab.image.url }}); background-size: cover;"></div>
     <h2>
-        {{ lab.name }} 
+        {{ lab.name }}
     </h2>
     {% if lab.link %}
         <p><a href="{{ lab.link }}">{{ lab.link }}</a></p>

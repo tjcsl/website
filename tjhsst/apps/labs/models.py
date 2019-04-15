@@ -13,11 +13,11 @@ class Lab(models.Model):
 
     description = models.CharField(max_length=5000)
     link = models.CharField(max_length=200, blank = True)
-    
+
     prerequisites = models.ManyToManyField("Prerequisite", related_name="labs")
     recommended = models.ManyToManyField("Recommended", related_name="labs")
     app_label = "labs"
-    
+
     def __str__(self):
         return self.name
 
@@ -29,7 +29,7 @@ class Recommended(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 class Prerequisite(models.Model):
     id = models.AutoField(primary_key = True)
