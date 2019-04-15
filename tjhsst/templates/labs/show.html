@@ -14,11 +14,13 @@
         <p><a href="{{ lab.link }}">{{ lab.link }}</a></p>
     {% endif %}
     <p>{{ lab.description }}</p>
+    <h5>Prerequisites</h5>
     <p>
         {% for prerequisite in lab.prerequisites.all %}
-        <a class="prerequisite" href="{% url 'labs:show_prerequisite' prerequisite.url %}">{{ prerequisite.name }}</a>
+            <a class="prerequisite" href="{% url 'labs:show_prerequisite' prerequisite.url %}">{{ prerequisite.name }}</a>
         {% endfor %}
     </p>
+    <h5>Recommended</h5>
     <p>
         {% for recommended in lab.recommended.all %}
             <a class="recommended" href="{% url 'labs:show_recommended' recommended.url %}">{{ recommended.name }}</a>
