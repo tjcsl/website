@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}TJHSST: Labs{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'labs.css' %}">
+{% endblock %}
 
 {% block main %}
     <p>{{ labs|length }} lab{{ labs|length|pluralize:",s" }} </p>
