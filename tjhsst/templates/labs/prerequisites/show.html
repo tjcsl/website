@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'labs.css' %}">
+{% endblock %}
 
 {% block main %}
     <h2>
@@ -10,9 +15,11 @@
     {% for lab in labs %}
         <div class="lab lab-box">
             <a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
-            <a class="prerequisite prerequisite-large" href="{% url 'labs:show_prerequisite' lab.prerequisite.url %}">
-                {{ lab.prerequisite.name }}
-            </a>
+            {% for prereq in lab.prerequisites.all %}
+                <a class="prerequisite prerequisite-large" href="{% url 'labs:show_prerequisite' prereq.url %}">
+                    {{ prereq.name }}
+                </a>
+            {% endfor %}
         </div>
     {% endfor %}
 {% endblock %}

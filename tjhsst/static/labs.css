@@ -8,6 +8,7 @@
 }
 .recommended {
     padding: 3px 5px;
+    margin-right: 3px;
     background-color: #ddddff;
     color: #4444ff;
 }
@@ -20,6 +21,7 @@
 
 .prerequisite {
     padding: 3px 5px;
+    margin-right: 3px;
     background-color: #ddddff;
     color: #4444ff;
 }
