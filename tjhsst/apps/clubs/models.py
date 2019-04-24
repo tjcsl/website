@@ -16,6 +16,7 @@ class Club(models.Model):
 
     category = models.ForeignKey("Category", related_name="clubs", on_delete=models.SET_NULL, blank = True, null = True)
     keywords = models.ManyToManyField("Keyword", related_name="clubs")
+    admins = models.ManyToManyField("users.User", related_name="clubs")
 
     def __str__(self):
         return self.name
