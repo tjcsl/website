@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}TJHSST: Clubs{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'clubs.css' %}">
+{% endblock %}
+
 {% block main %}
-    <p>{{ clubs|length }} clubs</p>
+    <p>{{ clubs|length }} club{{ clubs|length|pluralize:",s" }}</p>
 
     {% for club in clubs %}
         <div class="club club-box">

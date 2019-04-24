@@ -1,0 +1,33 @@
+#image {
+    width: 100vw;
+    background-size: cover;
+}
+
+.lab-box {
+    padding: 3px;
+}
+.recommended {
+    padding: 3px 5px;
+    margin-right: 3px;
+    background-color: #ddddff;
+    color: #4444ff;
+}
+
+.recommended:hover {
+    background-color: #ccccee;
+    color: #3333ee;
+    text-decoration: none;
+}
+
+.prerequisite {
+    padding: 3px 5px;
+    margin-right: 3px;
+    background-color: #ddddff;
+    color: #4444ff;
+}
+
+.prerequisite:hover {
+    background-color: #ccccee;
+    color: #3333ee;
+    text-decoration: none;
+}
