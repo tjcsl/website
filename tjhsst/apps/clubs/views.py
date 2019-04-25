@@ -1,8 +1,10 @@
 import random
 
-from django.shortcuts import render, reverse, get_object_or_404
+from django import http
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from .models import Club, Keyword, Category
+from .forms import ClubForm
 
 # Create your views here.
 
@@ -80,4 +82,27 @@ def show_keyword(request, keyword_url):
             "clubs": keyword.clubs.all(),
         },
     )
+
+def edit(request, club_url):
+    club = get_object_or_404(Club, url = club_url)
+    if request.user.is_superuser or request.user in club.admins.all():
+
+        if request.method == "POST":
+            form = ClubForm(instance = club, data = request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect("clubs:edit", club.url)
+        else:
+            form = ClubForm(instance = club)
+
+        return render(
+            request,
+            "clubs/edit.html",
+            {
+                "club": club,
+                "club_form": form,
+            },
+        )
+    else:
+        raise http.Http404
 
