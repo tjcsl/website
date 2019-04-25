@@ -82,3 +82,7 @@ body {
     display: table-cell;
 }
 
+.center {
+    text-align: center;
+}
+
