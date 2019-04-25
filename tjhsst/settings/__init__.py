@@ -151,9 +151,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-LOGIN_URL = "/auth/login/"
-LOGOUT_URL = "/auth/logout/"
+LOGIN_URL = "/auth/login"
 LOGIN_REDIRECT_URL = "/clubs"
+LOGOUT_REDIRECT_URL = "/clubs"
 
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
