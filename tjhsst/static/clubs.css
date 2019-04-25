@@ -43,3 +43,9 @@
     background-repeat: no-repeat;
 }
 
+.edit-link, .edit-link:visited {
+    padding-left: 5px;
+    font-size: 70%;
+    color: #3366FF;
+}
+

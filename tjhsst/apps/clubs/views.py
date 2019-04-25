@@ -56,6 +56,7 @@ def show(request, club_url):
         "clubs/show.html",
         {
             "club": club,
+            "can_edit": request.user.is_superuser or request.user in club.admins.all(),
         },
     )
 
