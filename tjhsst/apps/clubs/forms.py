@@ -9,7 +9,7 @@ class ClubForm(forms.ModelForm):
 
     class Meta:
         model = Club
-        fields = ["name", "url", "image", "description", "link", "category", "keywords"]
+        fields = ["name", "image", "description", "link", "category", "keywords"]
         widgets = {
             "description": forms.Textarea(attrs = {"cols": 40, "rows": 3}),
         }
