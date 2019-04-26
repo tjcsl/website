@@ -6,12 +6,16 @@
 {% endblock %}
 
 {% block main %}
-    <div class="club-picture" style="background-image:url({{ club.image.url }});"></div>
+    {% if club.image %}
+        <div class="club-picture" style="background-image:url({{ club.image.url }});"></div>
+    {% endif %}
     <h2>
         {{ club.name }}
-        <a class="category" href="{% url 'clubs:show_category' club.category.url %}">
-            {{ club.category.name }}
-        </a>
+        {% if club.category %}
+            <a class="category" href="{% url 'clubs:show_category' club.category.url %}">
+                {{ club.category.name }}
+            </a>
+        {% endif %}
         {% if can_edit %}
             <a class="edit-link" href="{% url 'clubs:edit' club.url %}">edit</a>
         {% endif %}

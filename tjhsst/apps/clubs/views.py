@@ -4,7 +4,7 @@ from django import http
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from .models import Club, Keyword, Category
-from .forms import ClubForm
+from .forms import ClubForm, ClubCreationForm
 
 # Create your views here.
 
@@ -87,9 +87,8 @@ def show_keyword(request, keyword_url):
 def edit(request, club_url):
     club = get_object_or_404(Club, url = club_url)
     if request.user.is_superuser or request.user in club.admins.all():
-
         if request.method == "POST":
-            form = ClubForm(instance = club, data = request.POST)
+            form = ClubForm(request.POST, request.FILES, instance = club)
             if form.is_valid():
                 form.save()
                 return redirect("clubs:edit", club.url)
@@ -101,6 +100,26 @@ def edit(request, club_url):
             "clubs/edit.html",
             {
                 "club": club,
+                "club_form": form,
+            },
+        )
+    else:
+        raise http.Http404
+
+def new(request):
+    if request.user.is_teacher or request.user.is_superuser:
+        if request.method == "POST":
+            form = ClubCreationForm(request.POST)
+            if form.is_valid():
+                club = form.save()
+                return redirect("clubs:show", club.url)
+        else:
+            form = ClubCreationForm()
+
+        return render(
+            request,
+            "clubs/new.html",
+            {
                 "club_form": form,
             },
         )
