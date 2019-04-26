@@ -14,24 +14,15 @@ class Lab(models.Model):
     description = models.CharField(max_length=5000)
     link = models.CharField(max_length=200, blank = True)
 
-    prerequisites = models.ManyToManyField("Prerequisite", related_name="labs")
-    recommended = models.ManyToManyField("Recommended", related_name="labs")
+    prerequisites = models.ManyToManyField("Course", related_name="labs_with_prerequisite")
+    recommended = models.ManyToManyField("Course", related_name="labs_with_recommended")
     app_label = "labs"
 
     def __str__(self):
         return self.name
 
 
-class Recommended(models.Model):
-    id = models.AutoField(primary_key = True)
-    name = models.CharField(max_length=20, unique = True)
-    url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex="^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
-
-    def __str__(self):
-        return self.name
-
-
-class Prerequisite(models.Model):
+class Course(models.Model):
     id = models.AutoField(primary_key = True)
     name = models.CharField(max_length=20, unique = True)
     url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex="^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])

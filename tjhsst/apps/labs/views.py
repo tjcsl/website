@@ -2,7 +2,7 @@ import random
 
 from django.shortcuts import render, reverse, get_object_or_404
 
-from .models import Lab, Prerequisite, Recommended
+from .models import Lab, Course
 
 # Create your views here.
 
@@ -51,27 +51,13 @@ def show(request, lab_url):
         },
     )
 
-def show_prerequisite(request, prerequisite_url):
-    prerequisite = get_object_or_404(Prerequisite, url = prerequisite_url)
-
+def show_course(request, course_url):
+    course = get_object_or_404(Course, url = course_url)
     return render(
         request,
-        "labs/prerequisites/show.html",
+        "labs/courses/show.html",
         {
-            "prerequisite": prerequisite,
-            "labs": prerequisite.labs.all(),
+            "course": course,
+            "labs": course.labs_with_prerequisite.all(),
         },
     )
-
-def show_recommended(request, recommended_url):
-    recommended = get_object_or_404(Recommended, url = recommended_url)
-
-    return render(
-        request,
-        "labs/recommendeds/show.html",
-        {
-            "recommended": recommended,
-            "labs": recommended.labs.all(),
-        },
-    )
-
