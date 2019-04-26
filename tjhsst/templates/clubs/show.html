@@ -13,7 +13,7 @@
             {{ club.category.name }}
         </a>
         {% if can_edit %}
-            <a class="edit-link" href="{% url 'clubs:edit' club.id %}">edit</a>
+            <a class="edit-link" href="{% url 'clubs:edit' club.url %}">edit</a>
         {% endif %}
     </h2>
     {% if club.link %}
