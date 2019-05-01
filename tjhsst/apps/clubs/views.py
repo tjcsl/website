@@ -86,7 +86,7 @@ def show_keyword(request, keyword_url):
 
 def edit(request, club_url):
     club = get_object_or_404(Club, url = club_url)
-    if request.user.is_superuser or request.user in club.admins.all():
+    if request.user.is_authenticated and request.user.is_superuser or request.user in club.admins.all():
         if request.method == "POST":
             form = ClubForm(request.POST, request.FILES, instance = club)
             if form.is_valid():
@@ -107,7 +107,7 @@ def edit(request, club_url):
         raise http.Http404
 
 def new(request):
-    if request.user.is_teacher or request.user.is_superuser:
+    if request.user.is_authenticated and request.user.is_teacher or request.user.is_superuser:
         if request.method == "POST":
             form = ClubCreationForm(request.POST)
             if form.is_valid():
