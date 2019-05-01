@@ -5,7 +5,7 @@ from .models import Club, Keyword, Category
 class ClubForm(forms.ModelForm):
     link = forms.URLField(required = False)
     category = forms.ModelChoiceField(Category.objects.all(), required = True, empty_label = None)
-    keywords = forms.ModelMultipleChoiceField(Keyword.objects.all(), required = True)
+    keywords = forms.ModelMultipleChoiceField(Keyword.objects.all(), required = False)
 
     class Meta:
         model = Club
