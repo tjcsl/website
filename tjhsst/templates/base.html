@@ -37,6 +37,10 @@
                             <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                         </form>
                     </li>
+                {% else %}
+                    <li>
+                        <span class="navbar-text" style="color:rgb(255,255,255)"><a href="{% url 'auth:login' %}">Login</a></span>
+                    </li>
                 {% endif %}
             </ul>
             <ul class="navbar-nav ml-auto">
