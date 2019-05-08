@@ -8,11 +8,12 @@
             {% for field in club_form %}
                 <div class="tbl-row">
                     <span class="tbl-cell bold" style="vertical-align:top;padding-right:5px;">{{ field.label_tag }}</span>
-                    <span class="tbl-cell">{{ field }}</span>
+                    <span class="tbl-cell" style="padding-top:5px">{{ field }}</span>
                 </div>
             {% endfor %}
         </div>
-        <input type="submit" value="Save">
+        <input style="background-color: #3366FF;padding:5px 10px;border:none;margin:3px;font-size:20px;" type="submit" value="Save">
+        <a href="{% url 'clubs:show' club.url %}"><input style="background-color:  rgba(221, 64, 58, 1);padding:5px 10px;border:none;margin:3px;font-size:20px;" type="button" value="Back"></a>
     </form>
 {% endblock %}
 
