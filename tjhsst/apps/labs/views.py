@@ -1,6 +1,7 @@
 import random
 
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.db.models import Q
 
 from .models import Lab, Course
 from .forms import LabForm, LabCreationForm
@@ -66,22 +67,28 @@ def show_course(request, course_url):
     )
 
 def show_courses(request):
+    course_urls = request.GET.getlist("courses[]")
     if "submit" in request.GET:
-        course_urls = request.GET.getlist("courses[]")
-        labs = Lab.objects.all()
-        labs = list(filter(lambda lab: all(course.url in course_urls for course in lab.prerequisites.all()), labs))
-        print(labs)
+        labs = Lab.objects.filter(Q(prerequisites__url__in = course_urls)).distinct()
+        return render(
+            request,
+            "labs/find/course_results.html",
+            {
+                "all_courses": Course.objects.all(),
+                "course_urls": course_urls,
+                "labs": labs,
+            }
+        )
     else:
-        course_urls = []
-        labs = Lab.objects.all()
-    return render(
-        request,
-        "labs/find/find_by_courses.html",
-        {
-            "all_courses": Course.objects.all(),
-            "course_urls": course_urls,
-        }
-    )
+
+        return render(
+            request,
+            "labs/find/find_by_courses.html",
+            {
+                "all_courses": Course.objects.all(),
+                "course_urls": course_urls,
+            }
+        )
 
 def edit(request, lab_url):
     lab = get_object_or_404(Lab, url = lab_url)
