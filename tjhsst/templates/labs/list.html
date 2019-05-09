@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block main %}
+    <div>{{ labs|length }} lab{{ labs|length|pluralize:",s" }}</div>
+
     <div class="row" style="margin: 0px">
         {% for lab, prereq_recommended in labs %}
             <div class="lab lab-box col-12 col-xl-4 col-lg-6 col-md-6 col-sm-12">
