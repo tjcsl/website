@@ -1,19 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'forms.css' %}">
+{% endblock %}
 
 {% block main %}
+    <a class="return-button" href="{% url 'clubs:show' club.url %}">View Club Page</a>
     <h2>{{ club_form.errors }}</h2>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="tbl">
             {% for field in club_form %}
                 <div class="tbl-row">
-                    <span class="tbl-cell bold" style="vertical-align:top;padding-right:5px;">{{ field.label_tag }}</span>
-                    <span class="tbl-cell" style="padding-top:5px">{{ field }}</span>
+                    <span class="tbl-cell bold">{{ field.label_tag }}</span>
+                    <div class="tbl-cell">{{ field }}</div>
                 </div>
             {% endfor %}
         </div>
-        <input style="background-color: #3366FF;padding:5px 10px;border:none;margin:3px;font-size:20px;" type="submit" value="Save">
-        <a href="{% url 'clubs:show' club.url %}"><input style="background-color:  rgba(221, 64, 58, 1);padding:5px 10px;border:none;margin:3px;font-size:20px;" type="button" value="Back"></a>
+        <input type="submit" value="Save">
     </form>
 {% endblock %}
-

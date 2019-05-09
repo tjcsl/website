@@ -86,3 +86,6 @@ body {
     text-align: center;
 }
 
+.login-button, .login-button:hover {
+    text-decoration:none;
+}
