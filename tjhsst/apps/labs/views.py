@@ -61,3 +61,21 @@ def show_course(request, course_url):
             "labs": course.labs_with_prerequisite.all(),
         },
     )
+
+def show_courses(request):
+    if "submit" in request.GET:
+        course_urls = request.GET.getlist("courses[]")
+        labs = Lab.objects.all()
+        labs = list(filter(lambda lab: all(course.url in course_urls for course in lab.prerequisites.all()), labs))
+        print(labs)
+    else:
+        course_urls = []
+        labs = Lab.objects.all()
+    return render(
+        request,
+        "labs/find/find_by_courses.html",
+        {
+            "all_courses": Course.objects.all(),
+            "course_urls": course_urls,
+        }
+    )
