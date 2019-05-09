@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+    {% for lab in labs %}
+        <div class="lab lab-box">
+            <a href="{% url 'labs:show' lab.url %}"><h3>{{ lab.name }}</h3></a>
+        </div>
+    {% endfor %}
+{% endblock %}
