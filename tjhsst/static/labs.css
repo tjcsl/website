@@ -31,3 +31,17 @@
     color: #3333ee;
     text-decoration: none;
 }
+
+.lab-picture {
+    background-size: contain;
+    min-height: 100px;
+    height: 20vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.edit-link, .edit-link:visited {
+    font-size: 80%;
+    color: #3366FF;
+}
+
