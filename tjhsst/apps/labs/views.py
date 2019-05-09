@@ -36,9 +36,9 @@ def index(request):
 
     return render(
         request,
-        "labs/index.html",
+        "labs/list.html",
         {
-            "labs": labs,
+            "labs": [(lab, itertools.zip_longest(lab.prerequisites.all(), lab.recommended.all())) for lab in labs],
             "search_term": request.GET.get("q", ""),
         },
     )
@@ -84,7 +84,7 @@ def show_courses(request):
 
         return render(
             request,
-            "labs/find/find_by_courses.html",
+            "labs/list.html",
             {
                 "all_courses": Course.objects.all(),
                 "course_urls": course_urls,

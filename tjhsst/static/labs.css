@@ -4,7 +4,8 @@
 }
 
 .lab-box {
-    padding: 3px;
+    padding: 10px;
+    border: 1px solid #E0E0E0;
 }
 .recommended {
     padding: 3px 5px;
