@@ -45,3 +45,26 @@
     color: #3366FF;
 }
 
+.recommended.taken {
+    background-color: #44cc44;
+    color: white;
+    font-weight: bold;
+}
+
+.prerequisite.taken {
+    background-color: #44cc44;
+    color: white;
+    font-weight: bold;
+}
+
+.recommended.taken {
+    background-color: #44cc44;
+    color: white;
+    font-weight: bold;
+}
+
+.recommended.taken i.fa, .prerequisite.taken i.fa {
+    padding-left: 2px;
+    padding-right: 5px;
+}
+

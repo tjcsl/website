@@ -1,4 +1,5 @@
 import random
+import itertools
 
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
@@ -76,7 +77,7 @@ def show_courses(request):
             {
                 "all_courses": Course.objects.all(),
                 "course_urls": course_urls,
-                "labs": labs,
+                "labs": [(lab, itertools.zip_longest(lab.prerequisites.all(), lab.recommended.all())) for lab in labs],
             }
         )
     else:

@@ -2,10 +2,48 @@
 
 {% load static %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'labs.css' %}">
+{% endblock %}
+
 {% block main %}
-    {% for lab in labs %}
+    {% for lab, prereq_recommended in labs %}
         <div class="lab lab-box">
-            <a href="{% url 'labs:show' lab.url %}"><h3>{{ lab.name }}</h3></a>
+            <h3><a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a></h3>
+            <table class="table" style="display:inline-block">
+                <tr>
+                    <th>Prerequisites</th>
+                    <th>Recommended</th>
+                </tr>
+                {% for prereq, recommended in prereq_recommended %}
+                    <tr>
+                        <td>
+                            {% if prereq %}
+                                <span class="prerequisite{% if prereq.url in course_urls %} taken{% endif %}">
+                                    {{ prereq.name }}
+                                    {% if prereq.url in course_urls %}
+                                        <i class="fa fa-check"></i>
+                                    {% endif %}
+                                </span>
+                            {% else %}
+                                &nbsp;
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if recommended %}
+                                <span class="recommended{% if recommended.url in course_urls %} taken{% endif %}">
+                                    {{ recommended.name }}
+                                    {% if recommended.url in course_urls %}
+                                        <i class="fa fa-check"></i>
+                                    {% endif %}
+                                </span>
+                            {% else %}
+                                &nbsp;
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
     {% endfor %}
 {% endblock %}
