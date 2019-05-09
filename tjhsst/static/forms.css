@@ -1,0 +1,13 @@
+div.tbl-cell{
+    padding-top:5px;
+}
+
+span.tbl-cell{
+    padding-right:5px;
+    vertical-align:top;
+}
+
+.return-button, .return-button:hover{
+    text-decoration:none;
+}
+
