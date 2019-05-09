@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700");
+@import url("https://fonts.googleapis.com/css?family=Heebo:300,300i,700");
 @import url("https://fonts.googleapis.com/css?family=Calligraffitti");
 
 html,
 body {
-    font-family: "Open Sans Condensed", sans-serif;
+    font-family: "Heebo", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -37,14 +37,13 @@ body {
     padding: 0px 80px 0px 80px;
 }
 #banner-unofficial > a {
-    color: rgba(110, 213, 247,1);
+    color: rgba(110, 213, 247, 1);
 }
 
 #banner-student .students {
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
 }
-
 
 /* Overlay */
 #overlay {
@@ -101,7 +100,8 @@ body {
 .linkbox a:hover {
     text-decoration: none;
 }
-.linkbox a:hover .icon, .linkbox a:hover p {
+.linkbox a:hover .icon,
+.linkbox a:hover p {
     opacity: 0.7;
 }
 .linkbox .officiallink {
