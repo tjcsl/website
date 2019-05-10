@@ -58,12 +58,16 @@ def show(request, lab_url):
 
 def show_course(request, course_url):
     course = get_object_or_404(Course, url = course_url)
+    required = course.labs_with_prerequisite.all()
+    recommended = course.labs_with_recommended.all()
     return render(
         request,
         "labs/courses/show.html",
         {
             "course": course,
-            "labs": course.labs_with_prerequisite.all(),
+            "labs_required_for": required,
+            "labs_recommended_for": recommended,
+            "labs": recommended.union(required)
         },
     )
 
