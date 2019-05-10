@@ -70,7 +70,7 @@ def show_course(request, course_url):
 def show_courses(request):
     course_urls = request.GET.getlist("courses[]")
     if "submit" in request.GET:
-        labs = Lab.objects.filter(Q(prerequisites__url__in = course_urls)).union(Lab.objects.filter(Q(recommended__url__in = course_urls)))
+        labs = Lab.objects.filter(Q(prerequisites__url__in = course_urls) | Q(recommended__url__in = course_urls)).distinct()
 
         lab_scores = {lab: 0 for lab in labs}
         for lab in labs:
