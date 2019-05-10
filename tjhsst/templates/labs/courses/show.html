@@ -11,18 +11,16 @@
     </h2>
 
     <p>{{ labs|length }} lab{{ labs|length|pluralize:",s" }} </p>
-    <div>
+    <h5>Labs Required For:</h5>
+    <p>
         {% for lab in labs_required_for %}
-            <span class="lab">
-                <a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
-            </span>
+            <a class="lab-title" href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
         {% endfor %}
-    </div>
-    <div>
+    </p>
+    <h5>Labs Recommended For:</h5>
+    <p>
         {% for lab in labs_recommended_for %}
-            <span class="lab">
-                <a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
-            </span>
+            <a class="lab-title" href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
         {% endfor %}
-    </div>
+    </p>
 {% endblock %}
