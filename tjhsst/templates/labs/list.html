@@ -23,24 +23,24 @@
                         <tr>
                             <td>
                                 {% if prereq %}
-                                    <span class="prerequisite{% if prereq.url in course_urls %} taken{% endif %}">
+                                    <a class="prerequisite{% if prereq.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' prereq.url %}">
                                         {{ prereq.name }}
                                         {% if prereq.url in course_urls %}
                                             <i class="fa fa-check"></i>
                                         {% endif %}
-                                    </span>
+                                    </a>
                                 {% else %}
                                     &nbsp;
                                 {% endif %}
                             </td>
                             <td>
                                 {% if recommended %}
-                                    <span class="recommended{% if recommended.url in course_urls %} taken{% endif %}">
+                                    <a class="recommended{% if recommended.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' recommended.url %}">
                                         {{ recommended.name }}
                                         {% if recommended.url in course_urls %}
                                             <i class="fa fa-check"></i>
                                         {% endif %}
-                                    </span>
+                                    </a>
                                 {% else %}
                                     &nbsp;
                                 {% endif %}

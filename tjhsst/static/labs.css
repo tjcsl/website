@@ -71,10 +71,18 @@
     font-weight: bold;
 }
 
+.prerequisite.taken:hover {
+    background-color: #51f251;
+}
+
 .recommended.taken {
     background-color: #44cc44;
     color: white;
     font-weight: bold;
+}
+
+.recommended.taken:hover {
+    background-color: #51f251;
 }
 
 .recommended.taken i.fa, .prerequisite.taken i.fa {
