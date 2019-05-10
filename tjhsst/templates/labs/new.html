@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>{{ lab_form.errors }}</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="tbl">
+            {% for field in lab_form %}
+                <div class="tbl-row">
+                    <span class="tbl-cell bold" style="vertical-align:top;padding-right:5px;">{{ field.label_tag }}</span>
+                    <span class="tbl-cell">{{ field }}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}
+

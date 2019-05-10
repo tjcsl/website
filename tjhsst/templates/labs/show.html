@@ -6,9 +6,14 @@
 {% endblock %}
 
 {% block main %}
-    <div style="background-image: url({{ lab.image.url }}); background-size: cover;"></div>
+    {% if lab.image %}
+        <div class="lab-picture" style="background-image:url({{ lab.image.url }});"></div>
+    {% endif %}
     <h2>
         {{ lab.name }}
+        {% if can_edit %}
+            <a class="edit-link" href="{% url 'labs:edit' lab.url %}">edit</a>
+        {% endif %}
     </h2>
     {% if lab.link %}
         <p><a href="{{ lab.link }}">{{ lab.link }}</a></p>

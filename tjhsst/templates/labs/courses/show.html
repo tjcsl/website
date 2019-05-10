@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'labs.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h2>
+        {{ course.name }}
+    </h2>
+
+    <p>{{ labs|length }} lab{{ labs|length|pluralize:",s" }} </p>
+    <h5>Labs Required For:</h5>
+    <p>
+        {% for lab in labs_required_for %}
+            <a class="lab-title" href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
+        {% endfor %}
+    </p>
+    <h5>Labs Recommended For:</h5>
+    <p>
+        {% for lab in labs_recommended_for %}
+            <a class="lab-title" href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a>
+        {% endfor %}
+    </p>
+{% endblock %}

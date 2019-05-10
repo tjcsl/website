@@ -4,7 +4,8 @@
 }
 
 .lab-box {
-    padding: 3px;
+    padding: 10px;
+    border: 1px solid #E0E0E0;
 }
 .recommended {
     padding: 3px 5px;
@@ -31,3 +32,61 @@
     color: #3333ee;
     text-decoration: none;
 }
+
+.lab-title {
+    padding: 3px 5px;
+    margin-right: 3px;
+    background-color: #c3ffdd;
+    color: #3daaff;
+}
+
+.lab-title:hover {
+    background-color: #aceaca;
+    color: #3daaff;
+    text-decoration: none;
+}
+
+.lab-picture {
+    background-size: contain;
+    min-height: 100px;
+    height: 20vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.edit-link, .edit-link:visited {
+    font-size: 80%;
+    color: #3366FF;
+}
+
+.recommended.taken {
+    background-color: #44cc44;
+    color: white;
+    font-weight: bold;
+}
+
+.prerequisite.taken {
+    background-color: #44cc44;
+    color: white;
+    font-weight: bold;
+}
+
+.prerequisite.taken:hover {
+    background-color: #51f251;
+}
+
+.recommended.taken {
+    background-color: #44cc44;
+    color: white;
+    font-weight: bold;
+}
+
+.recommended.taken:hover {
+    background-color: #51f251;
+}
+
+.recommended.taken i.fa, .prerequisite.taken i.fa {
+    padding-left: 2px;
+    padding-right: 5px;
+}
+
