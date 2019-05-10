@@ -70,10 +70,19 @@ def show_course(request, course_url):
 def show_courses(request):
     course_urls = request.GET.getlist("courses[]")
     if "submit" in request.GET:
-        labs = Lab.objects.filter(Q(prerequisites__url__in = course_urls)).distinct()
+        labs = Lab.objects.filter(Q(prerequisites__url__in = course_urls)).union(Lab.objects.filter(Q(recommended__url__in = course_urls)))
+
+        lab_scores = {lab: 0 for lab in labs}
+        for lab in labs:
+            recommended = lab.recommended.all()
+            required = lab.prerequisites.all()
+            lab_scores[lab] += sum(course.url in course_urls for course in required) / len(required)
+            lab_scores[lab] += 0.1 * sum(course.url in course_urls for course in recommended)
+
+        labs = sorted(labs, reverse = True, key = lab_scores.__getitem__)
         return render(
             request,
-            "labs/find/course_results.html",
+            "labs/list.html",
             {
                 "all_courses": Course.objects.all(),
                 "course_urls": course_urls,
@@ -84,7 +93,7 @@ def show_courses(request):
 
         return render(
             request,
-            "labs/list.html",
+            "labs/find/find_by_courses.html",
             {
                 "all_courses": Course.objects.all(),
                 "course_urls": course_urls,
