@@ -9,7 +9,7 @@ class Lab(models.Model):
 
     image = models.ImageField(upload_to = "lab_photos/", null = True, blank = True)
 
-    description = models.CharField(max_length=5000, default="This club page has not yet been filled out.")
+    description = models.CharField(max_length=5000, default="This lab page has not yet been filled out.")
     link = models.CharField(max_length=200, blank = True)
 
     prerequisites = models.ManyToManyField("Course", related_name="labs_with_prerequisite")
