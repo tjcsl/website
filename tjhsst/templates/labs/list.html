@@ -11,43 +11,45 @@
     <h5><a href="{% url 'labs:find_by_courses' %}">Find your labs!</a></h5>
     <div class="row" style="margin: 0px">
         {% for lab, prereq_recommended in labs %}
-            <div class="lab lab-box col-12 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                <h3><a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a></h3>
-                <p>{{ lab.description }}</p>
-                <table class="table" style="display:inline-block">
-                    <tr>
-                        <th>Prerequisites</th>
-                        <th>Recommended</th>
-                    </tr>
-                    {% for prereq, recommended in prereq_recommended %}
+            <div class="lab-box col-12 col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                <div class="lab">
+                    <h3><a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a></h3>
+                    <p>{{ lab.description }}</p>
+                    <table class="table" style="display:inline-block">
                         <tr>
-                            <td>
-                                {% if prereq %}
-                                    <a class="prerequisite{% if prereq.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' prereq.url %}">
-                                        {{ prereq.name }}
-                                        {% if prereq.url in course_urls %}
-                                            <i class="fa fa-check"></i>
-                                        {% endif %}
-                                    </a>
-                                {% else %}
-                                    &nbsp;
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if recommended %}
-                                    <a class="recommended{% if recommended.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' recommended.url %}">
-                                        {{ recommended.name }}
-                                        {% if recommended.url in course_urls %}
-                                            <i class="fa fa-check"></i>
-                                        {% endif %}
-                                    </a>
-                                {% else %}
-                                    &nbsp;
-                                {% endif %}
-                            </td>
+                            <th>Prerequisites</th>
+                            <th>Recommended</th>
                         </tr>
-                    {% endfor %}
-                </table>
+                        {% for prereq, recommended in prereq_recommended %}
+                            <tr>
+                                <td>
+                                    {% if prereq %}
+                                        <a class="prerequisite{% if prereq.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' prereq.url %}">
+                                            {{ prereq.name }}
+                                            {% if prereq.url in course_urls %}
+                                                <i class="fa fa-check"></i>
+                                            {% endif %}
+                                        </a>
+                                    {% else %}
+                                        &nbsp;
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if recommended %}
+                                        <a class="recommended{% if recommended.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' recommended.url %}">
+                                            {{ recommended.name }}
+                                            {% if recommended.url in course_urls %}
+                                                <i class="fa fa-check"></i>
+                                            {% endif %}
+                                        </a>
+                                    {% else %}
+                                        &nbsp;
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         {% endfor %}
     </div>
