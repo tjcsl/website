@@ -39,8 +39,7 @@
     margin: -10px -10px 20px -10px;
 }
 
-.edit-link,
-.edit-link:visited {
+.edit-link, .edit-link:visited {
     padding-left: 5px;
     font-size: 70%;
     color: #3366ff;

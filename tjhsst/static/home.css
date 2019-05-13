@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Heebo:300,300i,700");
 @import url("https://fonts.googleapis.com/css?family=Calligraffitti");
 
-html,
-body {
+html, body {
     font-family: "Heebo", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -122,16 +121,13 @@ body {
     z-index: 100;
 }
 @keyframes octocat-wave {
-    0%,
-    100% {
+    0%, 100% {
         transform: rotate(0);
     }
-    20%,
-    60% {
+    20%, 60% {
         transform: rotate(-25deg);
     }
-    40%,
-    80% {
+    40%, 80% {
         transform: rotate(10deg);
     }
 }
