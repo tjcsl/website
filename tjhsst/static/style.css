@@ -60,6 +60,7 @@ html, body {
 
 .navbar .search button[type="submit"] {
     background-color: rgb(0, 80, 100);
+    padding: 0px 6px;
     border-radius: 3px;
     color: #fff;
     font-size: 13px;
