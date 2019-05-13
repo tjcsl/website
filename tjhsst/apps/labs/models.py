@@ -13,7 +13,7 @@ class Lab(models.Model):
     link = models.CharField(max_length=200, blank = True)
 
     prerequisites = models.ManyToManyField("Course", related_name="labs_with_prerequisite")
-    recommended = models.ManyToManyField("Course", related_name="labs_with_recommended")
+    recommended = models.ManyToManyField("Course", related_name="labs_with_recommended", blank = True)
     admins = models.ManyToManyField("users.User", related_name="labs")
     app_label = "labs"
 
