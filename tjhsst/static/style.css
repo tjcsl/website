@@ -88,3 +88,10 @@ html, body {
 .login-button, .login-button:hover {
     text-decoration:none;
 }
+
+@media (max-width: 991px) {
+    .navbar .search input[type="search"] {
+        width: calc(100% - 25px);
+    }
+}
+
