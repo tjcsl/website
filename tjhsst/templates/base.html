@@ -31,6 +31,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                {% if search_url and search_name %}
+                    <form class="search d-lg-none" method="GET" action="{{ search_url }}">
+                        <input type="search" name="q" placeholder="Search for {{ search_name }}" value="{{ search_term }}">
+                        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                    </form>
+                {% endif %}
                 <ul class="navbar-nav">
                     <li>
                         <a class="nav-link" href="{% url 'clubs:index' %}">Clubs</a>
@@ -40,7 +46,7 @@
                     </li>
                 </ul>
                 {% if search_url and search_name %}
-                    <form class="search" method="GET" action="{{ search_url }}">
+                    <form class="search d-lg-block d-none" method="GET" action="{{ search_url }}">
                         <input type="search" name="q" placeholder="Search for {{ search_name }}" value="{{ search_term }}">
                         <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                     </form>
