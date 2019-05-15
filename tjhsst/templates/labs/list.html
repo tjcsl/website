@@ -25,7 +25,7 @@
                                 <td>
                                     {% if prereq %}
                                         <a class="prerequisite{% if prereq.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' prereq.url %}">
-                                            {{ prereq.name }}
+                                            {{ prereq.nickname }}
                                             {% if prereq.url in course_urls %}
                                                 <i class="fa fa-check"></i>
                                             {% endif %}
@@ -37,7 +37,7 @@
                                 <td>
                                     {% if recommended %}
                                         <a class="recommended{% if recommended.url in course_urls %} taken{% endif %}" href="{% url 'labs:show_course' recommended.url %}">
-                                            {{ recommended.name }}
+                                            {{ recommended.nickname }}
                                             {% if recommended.url in course_urls %}
                                                 <i class="fa fa-check"></i>
                                             {% endif %}

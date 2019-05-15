@@ -99,7 +99,7 @@ def show_courses(request):
             request,
             "labs/find/find_by_courses.html",
             {
-                "all_courses": Course.objects.all().order_by("name"),
+                "all_courses": Course.objects.all().order_by("nickname"),
                 "course_urls": course_urls,
             }
         )
