@@ -42,6 +42,12 @@
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                    <li>
+                            <a class="nav-link" href="{% url 'clubs:index' %}">Clubs</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'labs:index' %}">Labs</a>
+                    </li>
                     {% if request.user.is_authenticated %}
                         <li>
                             <span class="navbar-text" style="color:rgb(255,255,255)"><i class="fa fa-user"></i> {{ request.user.username }}</span>

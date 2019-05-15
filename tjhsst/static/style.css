@@ -86,8 +86,13 @@ html, body {
     text-align: center;
 }
 
-.login-button, .login-button:hover {
-    text-decoration:none;
+.navbar-link {
+    padding:5px;
+    color:white;
+}
+
+span.fa-user{
+    padding-left:7px;
 }
 
 @media (max-width: 991px) {
