@@ -11,14 +11,14 @@
     <h5><a href="{% url 'labs:find_by_courses' %}">Find your labs!</a></h5>
     <div class="row" style="margin: 0px">
         {% for lab, prereq_recommended in labs %}
-            <div class="lab-box col-12 col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                <div class="lab">
+            <div class="lab-box card">
+                <div class="lab card-body">
                     <h3><a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a></h3>
                     <p>{{ lab.description }}</p>
                     <table class="table" style="display:inline-block">
                         <tr>
                             <th>Prerequisites</th>
-                            <th>Recommended</th>
+                            {% if lab.recommended.all %}<th>Recommended</th>{% endif %}
                         </tr>
                         {% for prereq, recommended in prereq_recommended %}
                             <tr>
