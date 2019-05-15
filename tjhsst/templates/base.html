@@ -31,23 +31,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="nav navbar-nav">
-                    {% if search_url and search_name %}
-                        <li>
-                            <form class="search" method="GET" action="{{ search_url }}">
-                                <input type="search" name="q" placeholder="Search for {{ search_name }}" value="{{ search_term }}">
-                                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-                            </form>
-                        </li>
-                    {% endif %}
-                </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav">
                     <li>
-                            <a class="nav-link" href="{% url 'clubs:index' %}">Clubs</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{% url 'labs:index' %}">Labs</a>
+                        <a class="nav-link" href="{% url 'clubs:index' %}">Clubs</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'labs:index' %}">Labs</a>
+                    </li>
+                </ul>
+                {% if search_url and search_name %}
+                    <form class="search" method="GET" action="{{ search_url }}">
+                        <input type="search" name="q" placeholder="Search for {{ search_name }}" value="{{ search_term }}">
+                        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                    </form>
+                {% endif %}
+                <ul class="navbar-nav ml-auto">
                     {% if request.user.is_authenticated %}
                         <li>
                             <span class="navbar-text" style="color:rgb(255,255,255)"><i class="fa fa-user"></i> {{ request.user.username }}</span>
