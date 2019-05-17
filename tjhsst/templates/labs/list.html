@@ -9,7 +9,7 @@
 {% block main %}
     <div>{{ labs|length }} lab{{ labs|length|pluralize:",s" }}</div>
     <h5><a href="{% url 'labs:find_by_courses' %}">Find your labs!</a></h5>
-    <div class="card-columns" style="margin: 0px">
+    <div class="lab-container card-columns">
         {% for lab, prereq_recommended in labs %}
             <div class="lab-box card">
                 <div class="lab card-body">
