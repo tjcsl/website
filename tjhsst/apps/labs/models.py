@@ -28,4 +28,8 @@ class Course(models.Model):
     url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex="^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
 
     def __str__(self):
-        return self.name
+        if self.nickname and self.nickname != self.name:
+            return "{} ({})".format(self.nickname, self.name)
+        else:
+            return self.name
+
