@@ -99,3 +99,21 @@
     padding-right: 5px;
 }
 
+@media(min-width: 576px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+@media(min-width: 720px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media(min-width: 960px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
