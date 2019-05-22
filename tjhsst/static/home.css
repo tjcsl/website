@@ -113,36 +113,3 @@ html, body {
     padding: 15px;
 }
 
-/* Github Corners */
-.github-corner:hover .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
-}
-.github-corner svg {
-    z-index: 100;
-}
-@keyframes octocat-wave {
-    0%, 100% {
-        transform: rotate(0);
-    }
-    20%, 60% {
-        transform: rotate(-25deg);
-    }
-    40%, 80% {
-        transform: rotate(10deg);
-    }
-}
-@media (max-width: 500px) {
-    .overlay-main p {
-        font-size: 1.5em;
-    }
-    .overlay-sub p {
-        font-size: 1.1em;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: none;
-    }
-    .github-corner .octo-arm {
-        animation: octocat-wave 560ms ease-in-out;
-    }
-}
