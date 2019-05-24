@@ -64,9 +64,11 @@
                 </ul>
             </div>
         </nav>
-        <div class="" id="root" style="background: #FFFFFF;margin:10px;">
-            {% block main %}{% endblock %}
-        </div>
+        {% block root %}
+            <div class="" id="root" style="background: #FFFFFF;margin:10px;">
+                {% block main %}{% endblock %}
+            </div>
+        {% endblock %}
     </body>
 </html>
 
