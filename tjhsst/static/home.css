@@ -33,7 +33,11 @@ html, body {
 }
 #banner-student {
     font-family: "Calligraffitti";
-    padding: 0px 80px 0px 80px;
+    padding: 0px 30px 0px 30px;
+    margin-bottom: 0px;
+}
+#banner-unofficial {
+    margin-bottom: 10px;
 }
 #banner-unofficial > a {
     color: rgba(110, 213, 247, 1);
@@ -47,26 +51,27 @@ html, body {
 /* Overlay */
 #overlay {
     min-height: 80.7vh;
-    min-height: calc(100vh - 246px);
+    min-height: calc(100vh - 274px);
 }
 .overlay-main {
     background-color: rgba(8, 103, 136, 0.8);
-    padding: 50px;
+    padding: 10px;
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 .overlay-main p {
-    font-size: 3em;
+    font-size: 2.5em;
+    line-height: 1.3em;
     color: rgba(255, 252, 236, 1);
     font-weight: bold;
 }
 .overlay-main img {
-    height: 150px;
+    height: 120px;
 }
 .overlay-sub {
     background-color: rgba(3, 71, 50, 0.8);
-    padding: 50px;
+    padding: 15px;
 
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -74,6 +79,7 @@ html, body {
 .overlay-sub p {
     color: rgba(255, 252, 236, 1);
     font-size: 2em;
+    margin-bottom: 0px;
 }
 
 /* Links */
@@ -89,12 +95,16 @@ html, body {
 }
 .icon {
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
+    height: 60px;
     color: rgba(255, 252, 236, 1);
     margin: 10px;
 }
 .linkbox a {
     color: rgba(255, 252, 236, 1);
+}
+.linkbox a p {
+    font-size: 120%;
 }
 .linkbox a:hover {
     text-decoration: none;
@@ -111,5 +121,23 @@ html, body {
     margin: 5px;
     border-radius: 15px;
     padding: 15px;
+}
+
+@media (max-width: 576px) {
+    #banner-student {
+        padding: 15px;
+    }
+    .overlay-main p {
+        font-size: 1.5em;
+    }
+    .overlay-sub p {
+        font-size: 1.25em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
 }
 
