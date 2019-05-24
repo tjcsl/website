@@ -123,6 +123,24 @@ html, body {
     padding: 15px;
 }
 
+@media (max-height: 760px) {
+    .overlay-main img {
+        height: 100px;
+        margin: 0.5rem 0px !important;
+    }
+    .overlay-main p {
+        font-size: 2em;
+    }
+
+    .icon {
+        font-size: 50px;
+        height: 50px;
+    }
+    #overlay {
+        min-height: calc(100vh - 264px);
+    }
+}
+
 @media (max-width: 576px) {
     #banner-student {
         padding: 15px;
@@ -137,7 +155,13 @@ html, body {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 1000px;
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 940px, max-width: 1200px) {
+    .container {
+        max-width: 940px;
     }
 }
 
