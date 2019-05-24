@@ -7,6 +7,11 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 ::selection {
     background: rgba(221, 64, 58, 0.5);
 }
@@ -23,6 +28,9 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 .banner {
     font-size: 1.3em;
@@ -48,11 +56,6 @@ html, body {
     color: rgba(255, 255, 255, 1);
 }
 
-/* Overlay */
-#overlay {
-    min-height: 80.7vh;
-    min-height: calc(100vh - 274px);
-}
 .overlay-main {
     background-color: rgba(8, 103, 136, 0.8);
     padding: 10px;
@@ -135,9 +138,6 @@ html, body {
     .icon {
         font-size: 50px;
         height: 50px;
-    }
-    #overlay {
-        min-height: calc(100vh - 264px);
     }
 }
 
