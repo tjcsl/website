@@ -69,6 +69,9 @@ body {
     color: rgba(255, 252, 236, 1);
     font-weight: bold;
 }
+.overlay-main p .smaller {
+    font-size: 75%;
+}
 .overlay-main img {
     height: 120px;
 }
