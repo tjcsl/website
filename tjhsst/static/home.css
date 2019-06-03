@@ -29,6 +29,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    overflow: auto;
     flex-direction: column;
     height: 100vh;
 }
