@@ -3,6 +3,15 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'forms.css' %}">
+    <script>
+        $(function() {
+            $("input,textarea,select").on("change paste input", function() {
+                window.onbeforeunload = function() {
+                    return 'You have unsaved changes on this page';
+                }
+            });
+        });
+    </script>
 {% endblock %}
 
 {% block main %}
