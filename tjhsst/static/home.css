@@ -57,6 +57,10 @@ body {
     color: rgba(255, 255, 255, 1);
 }
 
+#overlay {
+    min-height: min-content;
+}
+
 .overlay-main {
     background-color: rgba(8, 103, 136, 0.8);
     padding: 10px;
