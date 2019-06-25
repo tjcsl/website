@@ -103,6 +103,12 @@ span.fa-user{
     padding-left:7px;
 }
 
+@media (max-width: 767px) {
+    .navbar .search {
+        margin: .5rem 0rem 0rem 1rem;
+    }
+}
+
 @media (max-width: 991px) {
     .navbar .search input[type="search"] {
         width: calc(100% - 25px);
