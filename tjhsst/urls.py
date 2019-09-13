@@ -31,4 +31,3 @@ urlpatterns = [
 
 #This will only take effect during development
 urlpatterns.extend(static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT))
-

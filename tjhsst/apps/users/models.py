@@ -43,5 +43,3 @@ class User(AbstractUser):
 
     def get_social_auth(self):
         return self.social_auth.get(provider = "ion")
-
-

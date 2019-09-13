@@ -14,4 +14,3 @@ def set_search_field_vars(request):
             "search_url": search_url,
             "search_name": app_name,
         }
-

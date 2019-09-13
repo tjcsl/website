@@ -39,4 +39,3 @@ class IonOauth2(BaseOAuth2):
 
     def get_user_id(self, details, response):
         return details["id"]
-

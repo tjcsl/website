@@ -7,4 +7,3 @@ def login(request):
     return render(request, "auth/login.html")
 
 logout = LogoutView.as_view()
-
