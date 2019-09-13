@@ -125,4 +125,3 @@ def new(request):
         )
     else:
         raise http.Http404
-

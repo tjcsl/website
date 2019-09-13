@@ -12,4 +12,3 @@ urlpatterns = [
     path("<str:club_url>", views.show, name = "show"),
     path("<str:club_url>/edit", views.edit, name = "edit"),
 ]
-

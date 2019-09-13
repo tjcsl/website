@@ -18,4 +18,3 @@ class LabCreationForm(forms.ModelForm):
     class Meta:
         model = Lab
         fields = ["name", "url", "admins"]
-

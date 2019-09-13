@@ -12,4 +12,3 @@ urlpatterns = [
     path("<str:lab_url>/edit", views.edit, name = "edit"),
     path("course/<str:course_url>", views.show_course, name="show_course"),
 ]
-

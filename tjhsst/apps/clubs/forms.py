@@ -18,4 +18,3 @@ class ClubCreationForm(forms.ModelForm):
     class Meta:
         model = Club
         fields = ["name", "url", "admins"]
-

@@ -32,4 +32,3 @@ class Course(models.Model):
             return "{} ({})".format(self.nickname, self.name)
         else:
             return self.name
-
