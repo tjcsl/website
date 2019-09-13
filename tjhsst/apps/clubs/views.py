@@ -1,10 +1,10 @@
 import random
 
 from django import http
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 
-from .models import Club, Keyword, Category
-from .forms import ClubForm, ClubCreationForm
+from .forms import ClubCreationForm, ClubForm
+from .models import Category, Club, Keyword
 
 # Create your views here.
 

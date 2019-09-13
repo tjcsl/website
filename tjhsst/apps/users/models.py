@@ -1,10 +1,10 @@
-from django.contrib.auth.models import AbstractUser
-from django.db import models
-
-from social_django.utils import load_strategy
+import logging
 
 import requests
-import logging
+
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+from social_django.utils import load_strategy
 
 logger = logging.getLogger(__name__)
 

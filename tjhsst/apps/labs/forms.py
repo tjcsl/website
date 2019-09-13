@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Lab, Course
+from .models import Course, Lab
 
 
 class LabForm(forms.ModelForm):

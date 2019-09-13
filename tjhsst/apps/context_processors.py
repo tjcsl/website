@@ -1,6 +1,7 @@
 from django.shortcuts import reverse
 from django.urls import NoReverseMatch
 
+
 def set_search_field_vars(request):
     app_name = request.resolver_match.app_name
     if app_name == "home":

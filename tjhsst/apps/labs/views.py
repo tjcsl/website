@@ -1,11 +1,11 @@
-import random
 import itertools
+import random
 
-from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import Lab, Course
-from .forms import LabForm, LabCreationForm
+from .forms import LabCreationForm, LabForm
+from .models import Course, Lab
 
 # Create your views here.
 

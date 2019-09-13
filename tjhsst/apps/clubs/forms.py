@@ -1,6 +1,7 @@
 from django import forms
 
-from .models import Club, Keyword, Category
+from .models import Category, Club, Keyword
+
 
 class ClubForm(forms.ModelForm):
     link = forms.URLField(required = False)
