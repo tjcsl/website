@@ -27,7 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "new.tjhsst.edu", "new", "tjhsst.edu"]
 
 try:
-    from .secret import *
+    from .secret import *  # noqa
 except ImportError:
     pass
 

@@ -1,3 +1,3 @@
-from django.shortcuts import render
+from django.shortcuts import render  # pylint: disable=unused-import # noqa
 
 # Create your views here.
