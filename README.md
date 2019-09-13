@@ -1,12 +1,8 @@
 # Website
 
 The main website for TJHSST, currently under development.
-Supervised jointly by Akash Bhave, Keegan Lanzillotta, and Theo Ouzhinski.
-
-## TODO
-
--   [ ] Develop website plan
--   [ ] Agree on stuff related to the website
+Supervised jointly by @keegan and @jbeutner.
+Under the benevolent dictatorship of @theo-o.
 
 ## Necessary Links
 
