@@ -1,13 +1,14 @@
 import random
 import itertools
 
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 
 from .models import Lab, Course
 from .forms import LabForm, LabCreationForm
 
 # Create your views here.
+
 
 def index(request):
     labs = Lab.objects.all()
@@ -43,6 +44,7 @@ def index(request):
         },
     )
 
+
 def show(request, lab_url):
     lab = get_object_or_404(Lab, url = lab_url)
 
@@ -55,6 +57,7 @@ def show(request, lab_url):
 
         },
     )
+
 
 def show_course(request, course_url):
     course = get_object_or_404(Course, url = course_url)
@@ -70,6 +73,7 @@ def show_course(request, course_url):
             "labs": recommended.union(required)
         },
     )
+
 
 def show_courses(request):
     course_urls = request.GET.getlist("courses[]")
@@ -104,6 +108,7 @@ def show_courses(request):
             }
         )
 
+
 def edit(request, lab_url):
     lab = get_object_or_404(Lab, url = lab_url)
     if request.user.is_authenticated and (request.user.is_superuser or request.user in lab.admins.all()):
@@ -125,6 +130,7 @@ def edit(request, lab_url):
         )
     else:
         raise http.Http404
+
 
 def new(request):
     if request.user.is_authenticated and (request.user.is_teacher or request.user.is_superuser):

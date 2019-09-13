@@ -2,6 +2,7 @@ from django import forms
 
 from .models import Lab, Course
 
+
 class LabForm(forms.ModelForm):
     link = forms.URLField(required = False)
     prerequisites = forms.ModelMultipleChoiceField(Course.objects.all(), required = False)
@@ -13,6 +14,7 @@ class LabForm(forms.ModelForm):
         widgets = {
             "description": forms.Textarea(attrs = {"cols": 40, "rows": 3}),
         }
+
 
 class LabCreationForm(forms.ModelForm):
     class Meta:

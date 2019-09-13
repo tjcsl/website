@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 # Create your models here.
 
+
 class User(AbstractUser):
     id = models.AutoField(primary_key = True)
     full_name = models.CharField(max_length = 105)
