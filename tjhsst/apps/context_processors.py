@@ -11,7 +11,4 @@ def set_search_field_vars(request):
     except NoReverseMatch:
         return {}
     else:
-        return {
-            "search_url": search_url,
-            "search_name": app_name,
-        }
+        return {"search_url": search_url, "search_name": app_name}

@@ -13,21 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('social_django.urls', namespace = 'social')),
-
-
-    path('', include("tjhsst.apps.home.urls", namespace = "home")),
-    path('auth/', include("tjhsst.apps.auth.urls", namespace = "auth")),
-    path('clubs/', include("tjhsst.apps.clubs.urls", namespace = "clubs")),
-    path('labs/', include("tjhsst.apps.labs.urls", namespace="labs")),
+    path("admin/", admin.site.urls),
+    path("", include("social_django.urls", namespace="social")),
+    path("", include("tjhsst.apps.home.urls", namespace="home")),
+    path("auth/", include("tjhsst.apps.auth.urls", namespace="auth")),
+    path("clubs/", include("tjhsst.apps.clubs.urls", namespace="clubs")),
+    path("labs/", include("tjhsst.apps.labs.urls", namespace="labs")),
 ]
 
-#This will only take effect during development
-urlpatterns.extend(static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT))
+# This will only take effect during development
+urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
