@@ -15,6 +15,7 @@ class ClubForm(forms.ModelForm):
             "description": forms.Textarea(attrs = {"cols": 40, "rows": 3}),
         }
 
+
 class ClubCreationForm(forms.ModelForm):
     class Meta:
         model = Club

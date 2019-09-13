@@ -6,7 +6,7 @@ from django.db import models
 class Club(models.Model):
     id = models.AutoField(primary_key = True)
     name = models.CharField(max_length=100, unique = True)
-    url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex="^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
+    url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex=r"^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
 
     image = models.ImageField(upload_to = "club_photos/", null = True, blank=True)
 
@@ -24,7 +24,7 @@ class Club(models.Model):
 class Keyword(models.Model):
     id = models.AutoField(primary_key = True)
     name = models.CharField(max_length=100, unique = True)
-    url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex="^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
+    url = models.CharField(max_length=20, unique = True, validators=[RegexValidator(regex=r"^[a-zA-Z0-9_\-]+$", message="Only alphanumeric, dashes, and underscores allowed")])
 
     def __str__(self):
         return self.name

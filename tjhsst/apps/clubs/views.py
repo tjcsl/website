@@ -1,12 +1,13 @@
 import random
 
 from django import http
-from django.shortcuts import get_object_or_404, redirect, render, reverse
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ClubCreationForm, ClubForm
 from .models import Category, Club, Keyword
 
 # Create your views here.
+
 
 def index(request):
     clubs = Club.objects.all()
@@ -48,6 +49,7 @@ def index(request):
         },
     )
 
+
 def show(request, club_url):
     club = get_object_or_404(Club, url = club_url)
 
@@ -59,6 +61,7 @@ def show(request, club_url):
             "can_edit": request.user.is_superuser or request.user in club.admins.all(),
         },
     )
+
 
 def show_category(request, category_url):
     category = get_object_or_404(Category, url = category_url)
@@ -72,6 +75,7 @@ def show_category(request, category_url):
         },
     )
 
+
 def show_keyword(request, keyword_url):
     keyword = get_object_or_404(Keyword, url = keyword_url)
 
@@ -83,6 +87,7 @@ def show_keyword(request, keyword_url):
             "clubs": keyword.clubs.all(),
         },
     )
+
 
 def edit(request, club_url):
     club = get_object_or_404(Club, url = club_url)
@@ -105,6 +110,7 @@ def edit(request, club_url):
         )
     else:
         raise http.Http404
+
 
 def new(request):
     if request.user.is_authenticated and (request.user.is_teacher or request.user.is_superuser):
