@@ -11,5 +11,5 @@ install:
 - pipenv install --dev --deploy
 script:
 - ./scripts/format.sh
-- [[ -z $(git status --porcelain=v1) ]]  # If this fails, you forgot to run scripts/format.sh
+- test -z "$(git status --porcelain=v1)"  # If this fails, you forgot to run scripts/format.sh
 - ./scripts/check.sh
