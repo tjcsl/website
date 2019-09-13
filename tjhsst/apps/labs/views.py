@@ -2,6 +2,7 @@ import itertools
 import random
 
 from django.db.models import Q
+from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import LabCreationForm, LabForm
@@ -129,7 +130,7 @@ def edit(request, lab_url):
             },
         )
     else:
-        raise http.Http404
+        raise Http404
 
 
 def new(request):
@@ -150,4 +151,4 @@ def new(request):
             },
         )
     else:
-        raise http.Http404
+        raise Http404
