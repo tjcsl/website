@@ -22,6 +22,9 @@ class Club(models.Model):
     description = models.CharField(
         max_length=5000, default="This club page has not yet been filled out."
     )
+
+    activity_id = models.CharField(max_length=10, blank=True)
+
     link = models.CharField(max_length=200, blank=True)
 
     category = models.ForeignKey(
