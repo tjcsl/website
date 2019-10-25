@@ -23,7 +23,7 @@ class Club(models.Model):
         max_length=5000, default="This club page has not yet been filled out."
     )
 
-    activity_id = models.CharField(max_length=10, blank=True)
+    activity_id = models.IntegerField(blank=True, null=True)
 
     link = models.CharField(max_length=200, blank=True)
 
