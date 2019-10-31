@@ -26,11 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "new.tjhsst.edu", "new", "tjhsst.edu"]
 
-try:
-    from .secret import *  # noqa
-except ImportError:
-    pass
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -179,3 +174,8 @@ LOGGING = {
     },
     "loggers": {"django": {"handlers": ["file"], "level": "INFO", "propagate": True}},
 }
+
+try:
+    from .secret import *  # noqa
+except ImportError:
+    pass
