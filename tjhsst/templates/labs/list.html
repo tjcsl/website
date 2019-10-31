@@ -12,7 +12,7 @@
     <div class="lab-container card-columns">
         {% for lab, prereq_recommended in labs %}
             <div class="lab-box card">
-                <div class="lab card-body" style="background-image:url({{ lab.image.url }});">
+                <div class="lab card-body"{% if lab.image %} style="background-image:url({{ lab.image.url }});"{% endif %}>
                     <h3><a href="{% url 'labs:show' lab.url %}">{{ lab.name }}</a></h3>
                     <p>{{ lab.description }}</p>
                     {% if course_urls %}
