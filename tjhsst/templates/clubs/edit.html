@@ -10,6 +10,9 @@
                     return 'You have unsaved changes on this page';
                 }
             });
+            $("#submit_btn").click(function() {
+                window.onbeforeunload = null;
+            });
         });
     </script>
 {% endblock %}
@@ -27,6 +30,6 @@
                 </div>
             {% endfor %}
         </div>
-        <input type="submit" value="Save">
+        <input type="submit" id="submit_btn" value="Save">
     </form>
 {% endblock %}
