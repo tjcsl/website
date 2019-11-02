@@ -20,14 +20,14 @@
     {% endif %}
     <p>{{ lab.description }}</p>
     <h5>Required Courses:</h5>
-    <p>
+    <p style="line-height: 2em">
         {% for course in lab.prerequisites.all %}
             <a class="prerequisite" href="{% url 'labs:show_course' course.url %}">{{ course.name }}</a>
         {% endfor %}
     </p>
     {% if lab.recommended.all %}
         <h5>Recommended Courses:</h5>
-        <p>
+        <p style="line-height: 2em">
             {% for course in lab.recommended.all %}
                 <a class="recommended" href="{% url 'labs:show_course' course.url %}">{{ course.name }}</a>
             {% endfor %}

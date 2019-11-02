@@ -27,7 +27,7 @@
     {% if club.activity_id %}
         <p>Sign up on <a href="https://ion.tjhsst.edu/eighth/signup?{{ club.activity_id }}">Ion.</a></p>
     {% endif %}
-    <p>
+    <p style="line-height: 2em">
         {% for keyword in club.keywords.all %}
             <a class="keyword" href="{% url 'clubs:show_keyword' keyword.url %}">{{ keyword.name }}</a>
         {% endfor %}
