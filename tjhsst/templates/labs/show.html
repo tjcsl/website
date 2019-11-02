@@ -25,7 +25,7 @@
             <a class="prerequisite" href="{% url 'labs:show_course' course.url %}">{{ course.name }}</a>
         {% endfor %}
     </p>
-    {% if lab.recommended.all %}
+    {% if lab.recommended.exists %}
         <h5>Recommended Courses:</h5>
         <p style="line-height: 2em">
             {% for course in lab.recommended.all %}
