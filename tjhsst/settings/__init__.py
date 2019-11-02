@@ -189,7 +189,4 @@ except ImportError:
 
 
 if not DEBUG and SENTRY_PUBLIC_DSN is not None:
-    sentry_sdk.init(
-        dsn=SENTRY_PUBLIC_DSN,
-        integrations=[DjangoIntegration()]
-    )
+    sentry_sdk.init(dsn=SENTRY_PUBLIC_DSN, integrations=[DjangoIntegration()])
