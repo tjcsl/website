@@ -173,7 +173,7 @@ LOGGING = {
         "file": {
             "level": "INFO",
             "class": "logging.FileHandler",
-            "filename": os.path.join(BASE_DIR, "info.log"),
+            "filename": os.path.join(BASE_DIR, "logs/info.log"),
         }
     },
     "loggers": {"django": {"handlers": ["file"], "level": "INFO", "propagate": True}},
