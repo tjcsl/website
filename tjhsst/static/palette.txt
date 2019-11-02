@@ -1,5 +1,0 @@
-Primary: rgba(8, 103, 136, 1);
-Secondary: rgba(3, 71, 50, 1);
-Light: rgba(255, 252, 236, 1);
-Dark: rgba(40, 35, 41, 1);
-Highlight: rgba(221, 64, 58, 1);
