@@ -1,18 +1,18 @@
-div.tbl-cell{
-    padding-bottom:5px;
+div.tbl-cell {
+    padding-bottom: 5px;
 }
 
-span.tbl-cell{
-    padding-right:5px;
+span.tbl-cell {
+    padding-right: 5px;
     padding-top: 3px;
-    vertical-align:top;
+    vertical-align: top;
 }
 
 label {
     margin-bottom: 0;
 }
 
-.return-button, .return-button:hover{
-    text-decoration:none;
+.return-button, .return-button:hover {
+    text-decoration: none;
 }
 
