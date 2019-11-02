@@ -27,7 +27,6 @@ class Lab(models.Model):
     prerequisites = models.ManyToManyField("Course", related_name="labs_with_prerequisite")
     recommended = models.ManyToManyField("Course", related_name="labs_with_recommended", blank=True)
     admins = models.ManyToManyField("users.User", related_name="labs")
-    app_label = "labs"
 
     def __str__(self):
         return self.name
