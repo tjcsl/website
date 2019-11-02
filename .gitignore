@@ -12,6 +12,5 @@ db.sqlite3
 /tjhsst/serve
 /tjhsst/media
 /tjhsst/info.log
-/tjhsst/logs
 
 /fixtures/
