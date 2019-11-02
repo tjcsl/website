@@ -107,7 +107,12 @@ def show_courses(request):
         return render(
             request,
             "labs/find/find_by_courses.html",
-            {"all_courses": sorted(Course.objects.all(), key=lambda course: course.nickname_or_name), "course_urls": course_urls},
+            {
+                "all_courses": sorted(
+                    Course.objects.all(), key=lambda course: course.nickname_or_name
+                ),
+                "course_urls": course_urls,
+            },
         )
 
 
