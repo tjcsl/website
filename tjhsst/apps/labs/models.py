@@ -35,7 +35,7 @@ class Lab(models.Model):
 class Course(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, unique=True)
-    nickname = models.CharField(max_length=50, unique=True, null=True, blank=False)
+    nickname = models.CharField(max_length=50, unique=True, null=True, blank=True)
     url = models.CharField(
         max_length=20,
         unique=True,
@@ -46,6 +46,10 @@ class Course(models.Model):
             )
         ],
     )
+
+    @property
+    def nickname_or_name(self):
+        return self.nickname or self.name
 
     def __str__(self):
         if self.nickname and self.nickname != self.name:
