@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "tjhsst.apps.labs",
     "tjhsst.apps.users",
     "tjhsst.apps.auth.apps.AuthConfig",
+    "tjhsst.apps.fixtures",
 ]
 
 MIDDLEWARE = [
