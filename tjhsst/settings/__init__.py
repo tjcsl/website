@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -175,7 +178,18 @@ LOGGING = {
     "loggers": {"django": {"handlers": ["file"], "level": "INFO", "propagate": True}},
 }
 
+# Sentry settings
+SENTRY_PUBLIC_DSN = None
+
+
 try:
     from .secret import *  # noqa
 except ImportError:
     pass
+
+
+if not DEBUG and SENTRY_PUBLIC_DSN is not None:
+    sentry_sdk.init(
+        dsn=SENTRY_PUBLIC_DSN,
+        integrations=[DjangoIntegration()]
+    )
