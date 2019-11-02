@@ -36,7 +36,7 @@
     background-position: center;
     background-repeat: no-repeat;
     min-width: 80vw;
-    margin: -10px -10px 20px -10px;
+    margin: -10px -10px 20px -20px;
 }
 
 .edit-link, .edit-link:visited {
