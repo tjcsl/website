@@ -18,3 +18,11 @@ script:
 notifications:
   slack:
     secure: SLaYs4+NsnhQn8D6pSvUOnMGFDuGGpHrfaJKZCZdBQa+Ixv6KvtmPVFgWH4rEzeab0Nce4vf3we7Zf0N/adAsePqIq3lGxbA9b0s2xlog9vhzbSci7RhxU1mkXFBdDyIxM358iuDbcA/ojCl/CjKS5GKSBrsLjh/MRAra0ktl7WxadSzxkvMbGaWV+M/Qx+00THxrQrnzdatF9JlYlebNhOXcV5aBBh6Z0U42bdm16gk0IUQI3N2HeQB9Wv6FgGNeWUwdP60t76so43kwnIg3qujUQVS14Smf8kJ28kyINB9NkPACDatlPXE9kWKAIwyjumPTEa29N21sWIbosYspG/2psWqlunoBO3MuUN9UP8fQ4dLbLQ52e/Xzg/fJSUDCP4qv+ZqZNUQds6u5JcsIUtqpjaaK5Ni6pNOuPUDBkiNBpibC5ATDXOVzFMdW1vr1XNNRBiwNVSrZaTfTUB3eIIbws2JnSAMIqkU6hAXqdTn6OJcxQnA1VjEdjkFY7HvC2YuEqTTViZ08HWxG8g916DQ0jg6quxlQ89evZrlVa7pQFGzuzbvsQ1ZGxrX87PJ0XoMJO6KqjrM8SZm7QNSDY0oiCnUfwrY+5g07dhc6lioIp9D1mNVdYAJKm3wPyFaC9dyUSpJUZx3Q6MbxLNr6FexMdxoYPeWrNbuOyNmyOc=
+  webhooks:
+    urls:
+      - https://mattermost.tjhsst.edu/custom-tjcsl/webhooks/travis
+    on_success: always
+    on_failure: always
+    on_start:   never
+    on_cancel:  always
+    on_error:   always
