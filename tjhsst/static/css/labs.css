@@ -1,3 +1,7 @@
+hr {
+    margin: 30px auto;
+}
+
 #image {
     width: 100vw;
     background-size: cover;
@@ -67,6 +71,32 @@
     height: 20vh;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.add-btn {
+    border: 1px solid rgba(8, 103, 136, 1);
+    padding: 3px 6px;
+    color: rgba(8, 103, 136, 1);
+    font-size: 130%;
+}
+
+.add-btn:hover {
+    color: white;
+    background-color: rgba(8, 103, 136, 1);
+    text-decoration: none;
+}
+
+.lab-btn {
+    border: 1px solid rgba(8, 103, 136, 1);
+    padding: 0px 3px;
+    color: rgba(8, 103, 136, 1);
+    font-size: 60%;
+}
+
+.lab-btn:hover {
+    color: white;
+    background-color: rgba(8, 103, 136, 1);
+    text-decoration: none;
 }
 
 .edit-link, .edit-link:visited {

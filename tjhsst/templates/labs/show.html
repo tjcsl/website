@@ -9,8 +9,10 @@
     {% if lab.image %}
         <div class="lab-picture" style="background-image:url({{ lab.image.url }});"></div>
     {% endif %}
+    <br>
     <h2>
         {{ lab.name }}
+        <a class="lab-btn" href="{% url 'labs:show_projects' lab.url %}">Past Projects</a>
         {% if can_edit %}
             <a class="edit-link" href="{% url 'labs:edit' lab.url %}">edit</a>
         {% endif %}
@@ -19,6 +21,7 @@
         <p><a href="{{ lab.link }}">{{ lab.link }}</a></p>
     {% endif %}
     <p>{{ lab.description }}</p>
+    <hr>
     <h5>Required Courses:</h5>
     <p style="line-height: 2em">
         {% for course in lab.prerequisites.all %}
@@ -32,6 +35,19 @@
                 <a class="recommended" href="{% url 'labs:show_course' course.url %}">{{ course.name }}</a>
             {% endfor %}
         </p>
+    {% endif %}
+    {% if testimonials %}
+    <hr>
+    <h4>What Past Students Say:</h4>
+        <div class="card-columns">
+            {% for t in testimonials %}
+                <div class="card">
+                    <div class="card-body">
+                        {{ t.content }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     {% endif %}
 {% endblock %}
 
