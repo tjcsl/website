@@ -1,9 +1,10 @@
 import random
 
 from django import http
+from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import ClubCreationForm, ClubForm, AnnouncementCreationForm
+from .forms import AnnouncementCreationForm, ClubCreationForm, ClubForm
 from .models import Announcement, Category, Club, Keyword
 
 # Create your views here.
@@ -53,7 +54,9 @@ def dashboard(request):
     clubs = request.user.clubs_following.all()
     announcements = Announcement.objects.filter(club__in=clubs).order_by("-post_time")
 
-    return render(request, "clubs/dashboard.html", context={"clubs": clubs, "announcements": announcements})
+    return render(
+        request, "clubs/dashboard.html", context={"clubs": clubs, "announcements": announcements}
+    )
 
 
 def show(request, club_url):
@@ -62,7 +65,11 @@ def show(request, club_url):
     return render(
         request,
         "clubs/show.html",
-        {"club": club, "can_edit": request.user.is_superuser or request.user in club.admins.all(), "is_following": request.user in club.followers.all()},
+        {
+            "club": club,
+            "can_edit": request.user.is_superuser or request.user in club.admins.all(),
+            "is_following": request.user in club.followers.all(),
+        },
     )
 
 

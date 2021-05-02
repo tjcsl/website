@@ -6,7 +6,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import LabCreationForm, LabForm, ProjectCreationForm, TestimonialCreationForm
-from .models import Course, Lab, Project, Testimonial
+from .models import Course, Lab
 
 # Create your views here.
 
@@ -56,7 +56,11 @@ def show(request, lab_url):
     return render(
         request,
         "labs/show.html",
-        {"lab": lab, "testimonials": testimonials, "can_edit": request.user.is_superuser or request.user in lab.admins.all()},
+        {
+            "lab": lab,
+            "testimonials": testimonials,
+            "can_edit": request.user.is_superuser or request.user in lab.admins.all(),
+        },
     )
 
 
@@ -153,7 +157,7 @@ def new(request):
 def show_projects(request, lab_url):
     lab = get_object_or_404(Lab, url=lab_url)
     projects = lab.senior_projects_sponsored.all()
-    
+
     return render(request, "labs/show_projects.html", {"projects": projects, "lab": lab})
 
 
