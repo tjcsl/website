@@ -4,7 +4,7 @@ from django import http
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ClubCreationForm, ClubForm, AnnouncementCreationForm
-from .models import Category, Club, Keyword
+from .models import Announcement, Category, Club, Keyword
 
 # Create your views here.
 
@@ -47,6 +47,13 @@ def index(request):
     return render(
         request, "clubs/index.html", {"clubs": clubs, "search_term": request.GET.get("q", "")}
     )
+
+
+def dashboard(request):
+    clubs = request.user.clubs_following.all()
+    announcements = Announcement.objects.filter(club__in=clubs).order_by("-post_time")
+
+    return render(request, "clubs/dashboard.html", context={"clubs": clubs, "announcements": announcements})
 
 
 def show(request, club_url):
