@@ -8,7 +8,12 @@
 {% endblock %}
 
 {% block main %}
-    <p>{{ clubs|length }} club{{ clubs|length|pluralize:",s" }}</p>
+    <p>
+        {{ clubs|length }} club{{ clubs|length|pluralize:",s" }}
+        {% if user.is_teacher or user.is_superuser %}
+            - <a href="{% url 'clubs:new' %}">Add a Club</a>
+        {% endif %}
+    </p>
 
     {% for club in clubs %}
         <div class="club club-box">

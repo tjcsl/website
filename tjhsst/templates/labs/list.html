@@ -7,7 +7,12 @@
 {% endblock %}
 
 {% block main %}
-    <div>{{ labs|length }} lab{{ labs|length|pluralize:",s" }}</div>
+    <div>
+        {{ labs|length }} lab{{ labs|length|pluralize:",s" }}
+        {% if user.is_superuser %}
+            - <a href="{% url 'labs:new' %}">Add a Lab</a>
+        {% endif %}
+    </div>
     <h5><a href="{% url 'labs:find_by_courses' %}">Find your labs!</a></h5>
     <div class="lab-container card-columns">
         {% for lab, prereq_recommended in labs %}
@@ -55,6 +60,14 @@
             </div>
         {% endfor %}
     </div>
+    {% if user.is_student %}
+        <br>
+        <div style="text-align: center;">
+            <a class="add-btn" href="{% url 'labs:add_project'%}">Add Project</a>
+            <a class="add-btn" href="{% url 'labs:add_testimonial'%}">Add Testimonial</a>
+        </div>
+    {% endif %}
+    <br>
     <i>Based on <a href="https://tjhsst.fcps.edu/node/2761">https://tjhsst.fcps.edu/node/2761</a></i>
 {% endblock %}
 
