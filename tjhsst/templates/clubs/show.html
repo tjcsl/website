@@ -16,8 +16,14 @@
                 {{ club.category.name }}
             </a>
         {% endif %}
+        {% if is_following %}
+            <a class="follow-btn" href="{% url 'clubs:follow' club.url %}">Unfollow</a>
+        {% else %}
+            <a class="follow-btn" href="{% url 'clubs:follow' club.url %}">Follow</a>
+        {% endif %}
         {% if can_edit %}
-            <a class="edit-link" href="{% url 'clubs:edit' club.url %}">edit</a>
+            <a class="follow-btn" href="{% url 'clubs:post' club.url %}">Post Announcement</a>
+            <a class="follow-btn" href="{% url 'clubs:edit' club.url %}">Edit</a>
         {% endif %}
     </h2>
     {% if club.link %}
