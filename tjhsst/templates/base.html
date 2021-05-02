@@ -38,6 +38,11 @@
                     </form>
                 {% endif %}
                 <ul class="navbar-nav">
+                    {% if request.user.is_authenticated %}
+                        <li>
+                            <a class="nav-link" href="{% url 'clubs:dashboard' %}">Dashboard</a>
+                        </li>
+                    {% endif %}
                     <li>
                         <a class="nav-link" href="{% url 'clubs:index' %}">Clubs</a>
                     </li>
