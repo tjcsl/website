@@ -54,7 +54,13 @@ class Project(models.Model):
 
 class Testimonial(models.Model):
     id = models.AutoField(primary_key=True)
-    author = models.ForeignKey("users.User", related_name="testimonials_written", on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.ForeignKey(
+        "users.User",
+        related_name="testimonials_written",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+    )
     lab = models.ForeignKey("Lab", related_name="testimonials_set", on_delete=models.CASCADE)
     content = models.CharField(max_length=5000)
 

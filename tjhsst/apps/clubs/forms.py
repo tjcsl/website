@@ -7,7 +7,10 @@ class AnnouncementCreationForm(forms.ModelForm):
     class Meta:
         model = Announcement
         fields = ["title", "content", "club"]
-        widgets = {"content": forms.Textarea(attrs={"cols": 40, "rows": 3}), "club": forms.HiddenInput()}
+        widgets = {
+            "content": forms.Textarea(attrs={"cols": 40, "rows": 3}),
+            "club": forms.HiddenInput(),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
