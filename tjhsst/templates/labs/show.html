@@ -14,7 +14,7 @@
         {{ lab.name }}
         <a class="lab-btn" href="{% url 'labs:show_projects' lab.url %}">Past Projects</a>
         {% if can_edit %}
-            <a class="edit-link" href="{% url 'labs:edit' lab.url %}">edit</a>
+            <a class="lab-btn" href="{% url 'labs:edit' lab.url %}">Edit</a>
         {% endif %}
     </h2>
     {% if lab.link %}

@@ -33,8 +33,20 @@ class Club(models.Model):
     keywords = models.ManyToManyField("Keyword", related_name="clubs", blank=True)
     admins = models.ManyToManyField("users.User", related_name="clubs")
 
+    followers = models.ManyToManyField("users.User", related_name="clubs_following")
+
     def __str__(self):
         return self.name
+
+
+class Announcement(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=100)
+    content = models.CharField(max_length=5000)
+
+    post_time = models.DateTimeField(auto_now_add=True)
+
+    club = models.ForeignKey("Club", related_name="announcement_set", on_delete=models.CASCADE)
 
 
 class Keyword(models.Model):

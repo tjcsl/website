@@ -3,7 +3,7 @@ import random
 from django import http
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import ClubCreationForm, ClubForm
+from .forms import ClubCreationForm, ClubForm, AnnouncementCreationForm
 from .models import Category, Club, Keyword
 
 # Create your views here.
@@ -55,8 +55,41 @@ def show(request, club_url):
     return render(
         request,
         "clubs/show.html",
-        {"club": club, "can_edit": request.user.is_superuser or request.user in club.admins.all()},
+        {"club": club, "can_edit": request.user.is_superuser or request.user in club.admins.all(), "is_following": request.user in club.followers.all()},
     )
+
+
+def follow(request, club_url):
+    club = get_object_or_404(Club, url=club_url)
+
+    if request.user.is_authenticated:
+        if request.user in club.followers.all():
+            club.followers.remove(request.user)
+        else:
+            club.followers.add(request.user)
+        club.save()
+        return redirect("clubs:show", club.url)
+    else:
+        raise Http404
+
+
+def post(request, club_url):
+    club = get_object_or_404(Club, url=club_url)
+
+    if request.user.is_superuser or request.user in club.admins.all():
+        if request.method == "POST":
+            form = AnnouncementCreationForm(request.POST, initial={"club": club})
+            if form.is_valid():
+                post = form.save()
+                post.club = club
+                post.save()
+                return redirect("clubs:show", club.url)
+        else:
+            form = AnnouncementCreationForm(initial={"club": club})
+
+        return render(request, "clubs/new.html", {"form": form})
+    else:
+        raise Http404
 
 
 def show_category(request, category_url):
@@ -103,6 +136,6 @@ def new(request):
         else:
             form = ClubCreationForm()
 
-        return render(request, "clubs/new.html", {"club_form": form})
+        return render(request, "clubs/new.html", {"form": form})
     else:
         raise http.Http404
