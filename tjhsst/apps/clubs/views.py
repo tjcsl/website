@@ -92,14 +92,14 @@ def post(request, club_url):
 
     if request.user.is_superuser or request.user in club.admins.all():
         if request.method == "POST":
-            form = AnnouncementCreationForm(request.POST, initial={"club": club})
+            form = AnnouncementCreationForm(request.POST, initial={"club": club, "author": request.user})
             if form.is_valid():
                 post = form.save()
                 post.club = club
                 post.save()
                 return redirect("clubs:show", club.url)
         else:
-            form = AnnouncementCreationForm(initial={"club": club})
+            form = AnnouncementCreationForm(initial={"club": club, "author": request.user})
 
         return render(request, "clubs/new.html", {"form": form})
     else:
