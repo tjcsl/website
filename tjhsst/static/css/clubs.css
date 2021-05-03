@@ -18,6 +18,20 @@
 .club-box {
     padding: 3px;
 }
+
+.follow-btn {
+    border: 1px solid rgba(8, 103, 136, 1);
+    padding: 0px 3px;
+    color: rgba(8, 103, 136, 1);
+    font-size: 60%;
+}
+
+.follow-btn:hover {
+    color: white;
+    background-color: rgba(8, 103, 136, 1);
+    text-decoration: none;
+}
+
 .keyword {
     padding: 3px 5px 1px 5px;
     background-color: #ddddff;

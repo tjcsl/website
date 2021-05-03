@@ -1,10 +1,12 @@
 import random
 
 from django import http
+from django.contrib.auth.decorators import login_required
+from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import ClubCreationForm, ClubForm
-from .models import Category, Club, Keyword
+from .forms import AnnouncementCreationForm, ClubCreationForm, ClubForm
+from .models import Announcement, Category, Club, Keyword
 
 # Create your views here.
 
@@ -49,14 +51,63 @@ def index(request):
     )
 
 
+@login_required
+def dashboard(request):
+    clubs = request.user.clubs_following.all()
+    announcements = Announcement.objects.filter(club__in=clubs).order_by("-post_time")
+
+    return render(
+        request, "clubs/dashboard.html", context={"clubs": clubs, "announcements": announcements}
+    )
+
+
 def show(request, club_url):
     club = get_object_or_404(Club, url=club_url)
 
     return render(
         request,
         "clubs/show.html",
-        {"club": club, "can_edit": request.user.is_superuser or request.user in club.admins.all()},
+        {
+            "club": club,
+            "can_edit": request.user.is_superuser or request.user in club.admins.all(),
+            "is_following": request.user in club.followers.all(),
+        },
     )
+
+
+@login_required
+def follow(request, club_url):
+    club = get_object_or_404(Club, url=club_url)
+
+    if request.user in club.followers.all():
+        club.followers.remove(request.user)
+    else:
+        club.followers.add(request.user)
+    club.save()
+
+    return redirect("clubs:show", club.url)
+
+
+@login_required
+def post(request, club_url):
+    club = get_object_or_404(Club, url=club_url)
+
+    if request.user.is_superuser or request.user in club.admins.all():
+        if request.method == "POST":
+            form = AnnouncementCreationForm(
+                request.POST, initial={"club": club, "author": request.user}
+            )
+            if form.is_valid():
+                post = form.save()
+                post.club = club
+                post.save()
+                return redirect("clubs:show", club.url)
+        else:
+            form = AnnouncementCreationForm(initial={"club": club, "author": request.user})
+
+        return render(request, "clubs/new.html", {"form": form})
+    else:
+        raise Http404
 
 
 def show_category(request, category_url):
@@ -75,11 +126,10 @@ def show_keyword(request, keyword_url):
     )
 
 
+@login_required
 def edit(request, club_url):
     club = get_object_or_404(Club, url=club_url)
-    if request.user.is_authenticated and (
-        request.user.is_superuser or request.user in club.admins.all()
-    ):
+    if request.user.is_superuser or request.user in club.admins.all():
         if request.method == "POST":
             form = ClubForm(request.POST, request.FILES, instance=club)
             if form.is_valid():
@@ -93,8 +143,9 @@ def edit(request, club_url):
         raise http.Http404
 
 
+@login_required
 def new(request):
-    if request.user.is_authenticated and (request.user.is_teacher or request.user.is_superuser):
+    if request.user.is_teacher or request.user.is_superuser:
         if request.method == "POST":
             form = ClubCreationForm(request.POST)
             if form.is_valid():
@@ -103,6 +154,6 @@ def new(request):
         else:
             form = ClubCreationForm()
 
-        return render(request, "clubs/new.html", {"club_form": form})
+        return render(request, "clubs/new.html", {"form": form})
     else:
         raise http.Http404

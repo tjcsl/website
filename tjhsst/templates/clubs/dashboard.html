@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}TJHSST: Club Dashboard{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/clubs.css' %}">
+{% endblock %}
+
+{% block main %}
+    <h3>Club Announcements:</h3>
+    {% if announcements %}
+        {% for a in announcements %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="display: inline;">{{ a.title }}</h5> - <h7 style="display: inline;">{{ a.club.name }}</h7>
+                    <p>{{ a.content }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>There are no announcements to display at this time.</p>
+    {% endif %}
+{% endblock %}
+

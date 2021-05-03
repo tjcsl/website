@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block main %}
-    <h2>{{ lab_form.errors }}</h2>
-    <form action="" method="post">
+    <h2>{{ form.errors }}</h2>
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="tbl">
-            {% for field in lab_form %}
+            {% for field in form %}
                 <div class="tbl-row">
                     <span class="tbl-cell bold" style="vertical-align:top;padding-right:5px;">{{ field.label_tag }}</span>
                     <span class="tbl-cell">{{ field }}</span>

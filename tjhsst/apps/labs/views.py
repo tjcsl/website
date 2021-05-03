@@ -1,11 +1,12 @@
 import itertools
 import random
 
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import LabCreationForm, LabForm
+from .forms import LabCreationForm, LabForm, ProjectCreationForm, TestimonialCreationForm
 from .models import Course, Lab
 
 # Create your views here.
@@ -51,11 +52,16 @@ def index(request):
 
 def show(request, lab_url):
     lab = get_object_or_404(Lab, url=lab_url)
+    testimonials = lab.testimonials_set.all()
 
     return render(
         request,
         "labs/show.html",
-        {"lab": lab, "can_edit": request.user.is_superuser or request.user in lab.admins.all()},
+        {
+            "lab": lab,
+            "testimonials": testimonials,
+            "can_edit": request.user.is_superuser or request.user in lab.admins.all(),
+        },
     )
 
 
@@ -116,16 +122,15 @@ def show_courses(request):
         )
 
 
+@login_required
 def edit(request, lab_url):
     lab = get_object_or_404(Lab, url=lab_url)
-    if request.user.is_authenticated and (
-        request.user.is_superuser or request.user in lab.admins.all()
-    ):
+    if request.user.is_superuser or request.user in lab.admins.all():
         if request.method == "POST":
             form = LabForm(request.POST, request.FILES, instance=lab)
             if form.is_valid():
                 form.save()
-                return redirect("labs:edit", lab.url)
+                return redirect("labs:show", lab.url)
         else:
             form = LabForm(instance=lab)
 
@@ -134,8 +139,9 @@ def edit(request, lab_url):
         raise Http404
 
 
+@login_required
 def new(request):
-    if request.user.is_authenticated and (request.user.is_teacher or request.user.is_superuser):
+    if request.user.is_teacher or request.user.is_superuser:
         if request.method == "POST":
             form = LabCreationForm(request.POST)
             if form.is_valid():
@@ -144,6 +150,39 @@ def new(request):
         else:
             form = LabCreationForm()
 
-        return render(request, "labs/new.html", {"lab_form": form})
+        return render(request, "labs/new.html", {"form": form})
     else:
         raise Http404
+
+
+def show_projects(request, lab_url):
+    lab = get_object_or_404(Lab, url=lab_url)
+    projects = lab.senior_projects_sponsored.all()
+
+    return render(request, "labs/show_projects.html", {"projects": projects, "lab": lab})
+
+
+@login_required
+def add_project(request):
+    if request.method == "POST":
+        form = ProjectCreationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("labs:index")
+    else:
+        form = ProjectCreationForm()
+
+    return render(request, "labs/new.html", {"form": form})
+
+
+@login_required
+def add_testimonal(request):
+    if request.method == "POST":
+        form = TestimonialCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("labs:index")
+    else:
+        form = TestimonialCreationForm()
+
+    return render(request, "labs/new.html", {"form": form})
