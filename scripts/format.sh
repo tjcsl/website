@@ -10,4 +10,4 @@ done
 
 # Order is important. There are a few things that black and autopep8 disagree on, and we want to go with
 # autopep8 on those because it makes flake8 happy.
-black tjhsst && autopep8 --in-place --recursive tjhsst && isort --recursive tjhsst
+black tjhsst && autopep8 --in-place --recursive tjhsst && isort tjhsst
