@@ -7,6 +7,7 @@ verify_ssl = true
 PyYAML = "~=5.4.1"
 autopep8 = "~=1.5.7"
 black = "~=21.4b2"
+coverage = "~=5.5"
 flake8 = "~=3.9.1"
 isort = "~=5.8.0"
 pylint = "~=2.8.2"
