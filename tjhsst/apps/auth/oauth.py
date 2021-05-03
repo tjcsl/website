@@ -1,13 +1,7 @@
 from social_core.backends.oauth import BaseOAuth2
-from social_core.pipeline.user import get_username as social_get_username
 
 
-def get_username(strategy, details, user=None, *args, **kwargs):
-    result = social_get_username(strategy, details, user=user, *args, **kwargs)
-    return result
-
-
-class IonOauth2(BaseOAuth2):
+class IonOauth2(BaseOAuth2):  # pylint: disable=abstract-method
     name = "ion"
     AUTHORIZATION_URL = "https://ion.tjhsst.edu/oauth/authorize"
     ACCESS_TOKEN_URL = "https://ion.tjhsst.edu/oauth/token"
