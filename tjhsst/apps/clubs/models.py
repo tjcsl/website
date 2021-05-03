@@ -45,7 +45,7 @@ class Announcement(models.Model):
     content = models.CharField(max_length=5000)
 
     post_time = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey("users.User", on_delete=models.SET_NULL, blank=True, null=True)    
+    author = models.ForeignKey("users.User", on_delete=models.SET_NULL, blank=True, null=True)
 
     club = models.ForeignKey("Club", related_name="announcement_set", on_delete=models.CASCADE)
 

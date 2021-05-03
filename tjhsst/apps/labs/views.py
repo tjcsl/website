@@ -1,6 +1,7 @@
 import itertools
 import random
 
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
@@ -121,11 +122,10 @@ def show_courses(request):
         )
 
 
+@login_required
 def edit(request, lab_url):
     lab = get_object_or_404(Lab, url=lab_url)
-    if request.user.is_authenticated and (
-        request.user.is_superuser or request.user in lab.admins.all()
-    ):
+    if request.user.is_superuser or request.user in lab.admins.all():
         if request.method == "POST":
             form = LabForm(request.POST, request.FILES, instance=lab)
             if form.is_valid():
@@ -139,8 +139,9 @@ def edit(request, lab_url):
         raise Http404
 
 
+@login_required
 def new(request):
-    if request.user.is_authenticated and (request.user.is_teacher or request.user.is_superuser):
+    if request.user.is_teacher or request.user.is_superuser:
         if request.method == "POST":
             form = LabCreationForm(request.POST)
             if form.is_valid():
@@ -161,31 +162,27 @@ def show_projects(request, lab_url):
     return render(request, "labs/show_projects.html", {"projects": projects, "lab": lab})
 
 
+@login_required
 def add_project(request):
-    if request.user.is_authenticated:
-        if request.method == "POST":
-            form = ProjectCreationForm(request.POST, request.FILES)
-            if form.is_valid():
-                form.save()
-                return redirect("labs:index")
-        else:
-            form = ProjectCreationForm()
-
-        return render(request, "labs/new.html", {"form": form})
+    if request.method == "POST":
+        form = ProjectCreationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("labs:index")
     else:
-        raise Http404
+        form = ProjectCreationForm()
+
+    return render(request, "labs/new.html", {"form": form})
 
 
+@login_required
 def add_testimonal(request):
-    if request.user.is_authenticated:
-        if request.method == "POST":
-            form = TestimonialCreationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect("labs:index")
-        else:
-            form = TestimonialCreationForm()
-
-        return render(request, "labs/new.html", {"form": form})
+    if request.method == "POST":
+        form = TestimonialCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("labs:index")
     else:
-        raise Http404
+        form = TestimonialCreationForm()
+
+    return render(request, "labs/new.html", {"form": form})
