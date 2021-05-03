@@ -8,4 +8,4 @@ for cmd in flake8 isort pylint; do
     fi
 done
 
-flake8 tjhsst && isort --recursive --check tjhsst && pylint tjhsst
+flake8 tjhsst && isort --check tjhsst && pylint tjhsst
