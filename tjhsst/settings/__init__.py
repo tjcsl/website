@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
 from pathlib import Path
 
 import sentry_sdk
@@ -93,7 +92,7 @@ DATABASES = {
     }
 }
 
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -125,7 +124,6 @@ SOCIAL_AUTH_PIPELINE = (
     "social_core.pipeline.social_auth.social_uid",
     "social_core.pipeline.social_auth.auth_allowed",
     "social_core.pipeline.social_auth.social_user",
-    "tjhsst.apps.auth.oauth.get_username",
     "social_core.pipeline.social_auth.associate_by_email",
     "social_core.pipeline.user.create_user",
     "social_core.pipeline.social_auth.associate_user",
@@ -193,4 +191,6 @@ except ImportError:
 
 
 if not DEBUG and SENTRY_PUBLIC_DSN is not None:
-    sentry_sdk.init(dsn=SENTRY_PUBLIC_DSN, integrations=[DjangoIntegration()])
+    sentry_sdk.init(  # pylint: disable=abstract-class-instantiated
+        dsn=SENTRY_PUBLIC_DSN, integrations=[DjangoIntegration()]
+    )
