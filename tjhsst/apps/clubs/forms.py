@@ -6,15 +6,17 @@ from .models import Announcement, Category, Club, Keyword
 class AnnouncementCreationForm(forms.ModelForm):
     class Meta:
         model = Announcement
-        fields = ["title", "content", "club"]
+        fields = ["title", "content", "club", "author"]
         widgets = {
             "content": forms.Textarea(attrs={"cols": 40, "rows": 3}),
             "club": forms.HiddenInput(),
+            "author": forms.HiddenInput(),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["club"].label = ""
+        self.fields["author"].label = ""
 
 
 class ClubForm(forms.ModelForm):
