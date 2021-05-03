@@ -1,6 +1,7 @@
 import random
 
 from django import http
+from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -50,6 +51,7 @@ def index(request):
     )
 
 
+@login_required
 def dashboard(request):
     clubs = request.user.clubs_following.all()
     announcements = Announcement.objects.filter(club__in=clubs).order_by("-post_time")
@@ -73,26 +75,28 @@ def show(request, club_url):
     )
 
 
+@login_required
 def follow(request, club_url):
     club = get_object_or_404(Club, url=club_url)
 
-    if request.user.is_authenticated:
-        if request.user in club.followers.all():
-            club.followers.remove(request.user)
-        else:
-            club.followers.add(request.user)
-        club.save()
-        return redirect("clubs:show", club.url)
+    if request.user in club.followers.all():
+        club.followers.remove(request.user)
     else:
-        raise Http404
+        club.followers.add(request.user)
+    club.save()
+
+    return redirect("clubs:show", club.url)
 
 
+@login_required
 def post(request, club_url):
     club = get_object_or_404(Club, url=club_url)
 
     if request.user.is_superuser or request.user in club.admins.all():
         if request.method == "POST":
-            form = AnnouncementCreationForm(request.POST, initial={"club": club, "author": request.user})
+            form = AnnouncementCreationForm(
+                request.POST, initial={"club": club, "author": request.user}
+            )
             if form.is_valid():
                 post = form.save()
                 post.club = club
@@ -122,11 +126,10 @@ def show_keyword(request, keyword_url):
     )
 
 
+@login_required
 def edit(request, club_url):
     club = get_object_or_404(Club, url=club_url)
-    if request.user.is_authenticated and (
-        request.user.is_superuser or request.user in club.admins.all()
-    ):
+    if request.user.is_superuser or request.user in club.admins.all():
         if request.method == "POST":
             form = ClubForm(request.POST, request.FILES, instance=club)
             if form.is_valid():
@@ -140,8 +143,9 @@ def edit(request, club_url):
         raise http.Http404
 
 
+@login_required
 def new(request):
-    if request.user.is_authenticated and (request.user.is_teacher or request.user.is_superuser):
+    if request.user.is_teacher or request.user.is_superuser:
         if request.method == "POST":
             form = ClubCreationForm(request.POST)
             if form.is_valid():
