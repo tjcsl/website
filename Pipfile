@@ -15,7 +15,7 @@ pylint-django = "~=2.4.4"
 
 [packages]
 Pillow = "~=8.2.0"
-django = "~=3.2"
+django = "~=3.2.4"
 gevent = "~=21.1.2"
 gunicorn = "~=20.1.0"
 psycopg2 = "~=2.8.6"
